@@ -24,6 +24,10 @@ public class DinnerPlanner extends JFrame {
 		this.model = model;
 	}
 
+    /**
+     * Main method, adding comment to test git.
+     * @param args
+     */
 	public static void main(String[] args) {
 		//Initiating the main JFrame
 		DinnerPlanner dinnerPlanner = new DinnerPlanner();
