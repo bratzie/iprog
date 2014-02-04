@@ -25,7 +25,7 @@ public class DinnerPlanner extends JFrame {
 	}
 
     /**
-     * Main method, adding comment to test git.
+     * Main method, adding comment to test git. Now I'm testing again.
      * @param args
      */
 	public static void main(String[] args) {
