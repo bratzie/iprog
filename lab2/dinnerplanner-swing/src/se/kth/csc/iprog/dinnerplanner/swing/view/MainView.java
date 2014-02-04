@@ -18,7 +18,7 @@ public class MainView extends JPanel {
 	
 	public MainView(){
 
-		label.setText("Hello world");
+		label.setText("Hej Josefin och Sarah");
 		
 		// Add label to the view
 		this.add(label);
