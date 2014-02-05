@@ -17,7 +17,17 @@ public class MainView extends JPanel {
 	
 	public MainView(){
 
-        JComponent panelStarter = makeTextPanel("Panel #1");
+        //JComponent panelStarter = makeTextPanel("Panel #1");
+        JComponent panelStarter = new JPanel();
+        JTextField jtext = new JTextField("Supposed to be Search field");
+        panelStarter.add(jtext);
+
+        JPanel dishContainer = new JPanel(new GridLayout(4,2));
+        ImageIcon icon = createImageIcon("/images/bakedbrie.jpg", "baked brie");
+        JComponent dish = new JLabel(icon);
+        dishContainer.add(dish);
+        panelStarter.add(dishContainer);
+
         JComponent panelMain = makeTextPanel("Panel #2");
         JComponent panelDessert = makeTextPanel("Panel #3");
         tabbedPane.addTab("Starter", panelStarter);
@@ -37,6 +47,18 @@ public class MainView extends JPanel {
         panel.setLayout (new GridLayout(1,1));
         panel.add(filler);
         return panel;
+    }
+
+    /** Returns an ImageIcon, or null if the path was invalid. */
+    protected ImageIcon createImageIcon(String path,
+                                        String description) {
+        java.net.URL imgURL = getClass().getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL, description);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
     }
 	
 }
