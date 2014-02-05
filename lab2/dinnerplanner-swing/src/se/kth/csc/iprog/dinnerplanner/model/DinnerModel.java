@@ -1,6 +1,7 @@
 package se.kth.csc.iprog.dinnerplanner.model;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class DinnerModel {
@@ -103,10 +104,10 @@ public class DinnerModel {
      * Returns the dish that is on the menu for selected type (1 = starter, 2 = main, 3 = desert).
      */
     public Dish getSelectedDish(int type){
-        for (int i=0; i<dishes.size(); i++){
-            Dish d= dishes.get(i);
-            if(d.getType() == type){
-                return d;
+
+        for(Dish dish: dishes){
+            if(dish.getType() == type){
+                return dish;
             }
         }
         return null;
