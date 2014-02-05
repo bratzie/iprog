@@ -18,7 +18,11 @@ public class MainView extends JPanel {
 	public MainView(){
 
         JComponent panelStarter = makeTextPanel("Panel #1");
+        JComponent panelMain = makeTextPanel("Panel #2");
+        JComponent panelDessert = makeTextPanel("Panel #3");
         tabbedPane.addTab("Starter", panelStarter);
+        tabbedPane.addTab("Main", panelMain);
+        tabbedPane.addTab("Dessert", panelDessert);
 		
 		// Add label to the view
         this.add(tabbedPane);
