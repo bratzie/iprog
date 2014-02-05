@@ -7,6 +7,10 @@ public class DinnerModel {
 	
 
 	Set<Dish> dishes = new HashSet<Dish>();
+
+    int noGuests;
+    int noDishes;
+    
 	
 	/**
 	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
