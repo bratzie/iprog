@@ -10,7 +10,7 @@ public class DinnerModel {
 
     int noGuests;
     int noDishes;
-    
+
 	
 	/**
 	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
@@ -98,7 +98,26 @@ public class DinnerModel {
 		}
 		return result;
 	}
-	
+
+    /**
+     * Returns the dish that is on the menu for selected type (1 = starter, 2 = main, 3 = desert).
+     */
+    public Dish getSelectedDish(int type){
+        for (int i=0; i<dishes.size(); i++){
+            Dish d= dishes.get(i);
+            if(d.getType() == type){
+                return d;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Returns all the dishes on the menu.
+     */
+    public Set<Dish> getFullMenu(){
+        return dishes;
+    }
 	
 
 }
