@@ -36,14 +36,18 @@ public class DinnerPlanner extends JFrame {
 		DinnerPlanner dinnerPlanner = new DinnerPlanner();
 		dinnerPlanner.setTitle("Dinner Planner");
 
+        // initialize the tabbed pane
         initTabbedPane();
+
+        dinnerPlanner.setLayout(new BorderLayout());
 		
 		//Adding the view to the main JFrame
-		dinnerPlanner.getContentPane().add(courseSwitcher);
+		dinnerPlanner.getContentPane().add(courseSwitcher, BorderLayout.CENTER);
+        dinnerPlanner.getContentPane().add(optionsView, BorderLayout.EAST);
 
         // make sure it's not resizable
         dinnerPlanner.setResizable(true);
-        dinnerPlanner.setPreferredSize(new Dimension(400, 300));
+        dinnerPlanner.setPreferredSize(new Dimension(1024, 768));
 
 		//Resize it so content fits
 		dinnerPlanner.pack();
