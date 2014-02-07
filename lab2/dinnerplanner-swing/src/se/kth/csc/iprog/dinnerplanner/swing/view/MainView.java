@@ -20,7 +20,7 @@ public class MainView extends JPanel {
     JPanel menuPanel;
     JTabbedPane tabbedPanel = new JTabbedPane();
 	
-	public MainView(){
+	public MainView() {
 
         // main container panel
         topPanel = new JPanel(new BorderLayout());
@@ -125,8 +125,6 @@ public class MainView extends JPanel {
 
 		// Add label to the view
         this.add(topPanel);
-		
-		// Setup the rest of the view layout
 	}
 
     public JComponent makeTextPanel (String text) {
