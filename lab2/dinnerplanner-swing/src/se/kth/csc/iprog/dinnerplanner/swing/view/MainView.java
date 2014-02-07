@@ -3,8 +3,6 @@ package se.kth.csc.iprog.dinnerplanner.swing.view;
 import javax.swing.*;
 import java.awt.*;
 
-import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
-
 
 public class MainView extends JPanel {
 	
@@ -13,29 +11,81 @@ public class MainView extends JPanel {
 	// The components of our view
 	JButton plusButton = new JButton();
 	JButton minusButton = new JButton();
-    JTabbedPane tabbedPane = new JTabbedPane();
+
+    JPanel topPanel;
+    JPanel optionsPanel;
+    JPanel starterPanel;
+    JPanel mainPanel;
+    JPanel dessertPanel;
+    JPanel guestCostPanel;
+    JPanel menuPanel;
+    JTabbedPane tabbedPanel = new JTabbedPane();
+    JPanel dishPanel;
 	
 	public MainView(){
 
-        //JComponent panelStarter = makeTextPanel("Panel #1");
-        JComponent panelStarter = new JPanel();
-        JTextField jtext = new JTextField("Supposed to be Search field");
-        panelStarter.add(jtext);
+        topPanel = new JPanel(new BorderLayout());
+        starterPanel = new JPanel(new BorderLayout());
+        mainPanel = new JPanel(new BorderLayout());
+        dessertPanel = new JPanel(new BorderLayout());
+        dishPanel = new JPanel(new GridLayout(0, 4));
 
-        JPanel dishContainer = new JPanel(new GridLayout(4,2));
-        ImageIcon icon = createImageIcon("/images/bakedbrie.jpg", "baked brie");
-        JComponent dish = new JLabel(icon);
-        dishContainer.add(dish);
-        panelStarter.add(dishContainer);
+        optionsPanel = new JPanel(new GridLayout(4, 1));
+        guestCostPanel = new JPanel(new GridLayout(2,2));
+        menuPanel = new JPanel(new BorderLayout());
 
-        JComponent panelMain = makeTextPanel("Panel #2");
-        JComponent panelDessert = makeTextPanel("Panel #3");
-        tabbedPane.addTab("Starter", panelStarter);
-        tabbedPane.addTab("Main", panelMain);
-        tabbedPane.addTab("Dessert", panelDessert);
-		
+        topPanel.add(tabbedPanel, BorderLayout.CENTER);
+        topPanel.add(optionsPanel, BorderLayout.EAST);
+
+        tabbedPanel.setPreferredSize(new Dimension(500, 500));
+        tabbedPanel.addTab("Starter", starterPanel);
+        tabbedPanel.addTab("Main", mainPanel);
+        tabbedPanel.addTab("Dessert", dessertPanel);
+
+        // init manu panel
+        JLabel menuTitle = new JLabel("Dinner Menu");
+        JScrollPane menuScroll = new JScrollPane();
+        menuPanel.add(menuTitle, BorderLayout.NORTH);
+        menuPanel.add(menuScroll, BorderLayout.CENTER);
+        menuPanel.setPreferredSize(new Dimension(200, 100));
+
+        // init guest/cost panel
+
+        // init options panel
+        optionsPanel.add(guestCostPanel);
+        JButton ingButton = new JButton("Ingredients");
+        JButton prepButton = new JButton("Preparation");
+        optionsPanel.add(menuPanel);
+        optionsPanel.add(ingButton);
+        optionsPanel.add(prepButton);
+
+        // init starter panel
+
+
+        // searchfield
+        JTextField searchField = new JTextField("");
+        starterPanel.add(searchField, BorderLayout.NORTH);
+
+        /*
+        // dishes
+        JScrollPane dishContainer = new JScrollPane();
+        ImageIcon icon1 = createImageIcon("/images/toast.jpg", "toast");
+        ImageIcon icon2 = createImageIcon("/images/icecream.jpg", "ice cream");
+        ImageIcon icon3 = createImageIcon("/images/meatballs.jpg", "meatballs");
+        ImageIcon icon4 = createImageIcon("/images/sourdough.jpg", "sourdough");
+        JComponent dish1 = new JLabel(icon1);
+        JComponent dish2 = new JLabel(icon2);
+        JComponent dish3 = new JLabel(icon3);
+        JComponent dish4 = new JLabel(icon4);
+        dishContainer.add(dish1);
+        dishContainer.add(dish2);
+        dishContainer.add(dish3);
+        dishContainer.add(dish4);
+        starterPanel.add(dishContainer, BorderLayout.CENTER);
+        */
+
 		// Add label to the view
-        this.add(tabbedPane);
+        this.add(topPanel);
 		
 		// Setup the rest of the view layout
 	}

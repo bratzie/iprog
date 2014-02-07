@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import se.kth.csc.iprog.dinnerplanner.model.*;
 import se.kth.csc.iprog.dinnerplanner.swing.view.*;
 
+import java.awt.*;
+
 
 public class DinnerPlanner extends JFrame {
 
@@ -26,8 +28,6 @@ public class DinnerPlanner extends JFrame {
 
     /**
      * Main method, adding comment to test git. Now I'm testing again.
-     * Hej Jesper nu har vi ändrat i filen. Fan vad vi äger!!
-     * NU SKRIVRER I GOIJGSODI A OI OIS
      *
      * @param args
      */
@@ -46,6 +46,7 @@ public class DinnerPlanner extends JFrame {
 		dinnerPlanner.pack();
 		
 		//and starting the JFrame
+        //dinnerPlanner.setSize(new Dimension(640, 480));
 		dinnerPlanner.setVisible(true);
 
 	}

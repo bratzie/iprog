@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class DinnerModel {
+public class DinnerModel implements IDinnerModel {
 	
 
 	Set<Dish> dishes = new HashSet<Dish>();
@@ -63,18 +63,23 @@ public class DinnerModel {
 		dish2.addIngredient(dish2ing10);
 		dish2.addIngredient(dish2ing11);
 		dishes.add(dish2);
-		
 	}
 	
 	/**
-	 * Returns the set of dishes of specific type. (1 = starter, 2 = main, 3 = desert).
+	 * Returns the set of dishes of specific type.
+     *
+     * @return All of the dishes.
 	 */
 	public Set<Dish> getDishes(){
 		return dishes;
 	}
 	
 	/**
-	 * Returns the set of dishes of specific type. (1 = starter, 2 = main, 3 = desert).
+	 * Returns the set of dishes of specific type.
+     *
+     * @param type  1 = starter, 2 = main, 3 = dessert.
+     *
+     * @return Dishes of the selected type.
 	 */
 	public Set<Dish> getDishesOfType(int type){
 		Set<Dish> result = new HashSet<Dish>();
@@ -101,7 +106,27 @@ public class DinnerModel {
 	}
 
     /**
+     * @return The number of guests.
+     */
+    @Override
+    public int getNumberOfGuests() {
+        return noGuests;
+    }
+
+    /**
+     * Set the number of guests for the parrtay!
+     *
+     * @param numberOfGuests
+     */
+    @Override
+    public void setNumberOfGuests(int numberOfGuests) {
+        noGuests = numberOfGuests;
+    }
+
+    /**
      * Returns the dish that is on the menu for selected type (1 = starter, 2 = main, 3 = desert).
+     *
+     * @param type 1 = Starter, 2 = Main Course, 3 = Dessert
      */
     public Dish getSelectedDish(int type){
 
@@ -119,6 +144,16 @@ public class DinnerModel {
     public Set<Dish> getFullMenu(){
         return dishes;
     }
-	
+
+    @Override
+    public Set<Ingredient> getAllIngredients() {
+        return null;
+    }
+
+    @Override
+    public float getTotalMenuPrice() {
+        return 0;
+    }
+
 
 }
