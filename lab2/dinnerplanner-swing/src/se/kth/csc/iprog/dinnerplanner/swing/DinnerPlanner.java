@@ -44,6 +44,8 @@ public class DinnerPlanner extends JFrame {
 		
 		//Resize it so content fits
 		dinnerPlanner.pack();
+
+        dinnerPlanner.setResizable(false);
 		
 		//and starting the JFrame
         //dinnerPlanner.setSize(new Dimension(640, 480));
