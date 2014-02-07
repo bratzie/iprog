@@ -9,6 +9,15 @@ import java.awt.*;
 
 public class DinnerPlanner extends JFrame {
 
+    // testing stuff
+    static Object[][] tempData = {
+            {"Potato", "5st", "102kr"},
+            {"Sauce", "2st", "1122kr"},
+            {"Pineapple", "1st", "12302kr"},
+            {"Axel", "10st", "80085kr"},
+            {"Potato", "5102st", "2kr"}
+    };
+
 	private static final long serialVersionUID = 1L;
 
 	public DinnerPlanner() {
@@ -37,16 +46,17 @@ public class DinnerPlanner extends JFrame {
 		
 		//Creating the first view
 		MainView mainView = new MainView();
-        IngredientView ingredientView = new IngredientView();
+        IngredientView ingredientView = new IngredientView(tempData);
 		
 		//Adding the view to the main JFrame
-		dinnerPlanner.getContentPane().add(mainView);
+		dinnerPlanner.getContentPane().add(ingredientView);
 		
 		//Resize it so content fits
 		dinnerPlanner.pack();
 
         // make sure it's not resizable
-        dinnerPlanner.setResizable(true);
+        dinnerPlanner.setPreferredSize(new Dimension(400, 300));
+        dinnerPlanner.setResizable(false);
 		
 		//and starting the JFrame
 		dinnerPlanner.setVisible(true);

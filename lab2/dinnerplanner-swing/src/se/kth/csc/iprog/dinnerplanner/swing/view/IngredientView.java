@@ -13,37 +13,24 @@ public class IngredientView extends JPanel {
 
     DinnerModel model;
 
-    public IngredientView() {
+    String[] columnNames = {"Name", "Quantity", "Cost"};
+
+    /**
+     * Creates a tableview to list ingredients
+     *
+     * @param tableData Object[][] containing a list<String> of list<String>
+     *                  The first list<String> should contain one list<String> per item.
+     *                  The second list<String> should contain name, quantity and cost.
+     */
+    public IngredientView(Object[][] tableData) {
         //this.model = model;
 
-        JList<String> listNames = new JList<String>();
-        JList<String> listQuantity = new JList<String>();
-        JList<String> listCost = new JList<String>();
+        JTable ingredientTable = new JTable(tableData, columnNames);
 
-        JPanel topPanel = new JPanel(new GridLayout(0, 3));
-        topPanel.setMinimumSize(new Dimension(600, 600));
-        topPanel.setMaximumSize(new Dimension(600, 600));
+        JScrollPane tableContainer = new JScrollPane(ingredientTable);
+        ingredientTable.setFillsViewportHeight(true);
 
-        JPanel namePanel = new JPanel(new BorderLayout());
-        JPanel quantityPanel = new JPanel(new BorderLayout());
-        JPanel costPanel = new JPanel(new BorderLayout());
-
-        JLabel nameLabel = new JLabel("Ingredients");
-        JLabel quantityLabel = new JLabel("Quantity");
-        JLabel costLabel = new JLabel("Cost");
-
-        namePanel.add(nameLabel, BorderLayout.NORTH);
-        namePanel.add(listNames, BorderLayout.CENTER);
-
-        quantityPanel.add(quantityLabel, BorderLayout.NORTH);
-        quantityPanel.add(listQuantity, BorderLayout.CENTER);
-
-        costPanel.add(costLabel, BorderLayout.NORTH);
-        costPanel.add(listCost, BorderLayout.CENTER);
-
-        topPanel.add(namePanel);
-        topPanel.add(quantityPanel);
-        topPanel.add(costPanel);
+        this.add(tableContainer);
     }
 }
 
