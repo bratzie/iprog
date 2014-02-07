@@ -1,6 +1,6 @@
 package se.kth.csc.iprog.dinnerplanner.swing;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import se.kth.csc.iprog.dinnerplanner.model.*;
 import se.kth.csc.iprog.dinnerplanner.swing.view.*;
@@ -24,7 +24,7 @@ public class DinnerPlanner extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}	
 	
-	private DinnerModel model = new DinnerModel();
+	private static DinnerModel model = new DinnerModel();
 
 	public DinnerModel getModel() {
 		return model;
@@ -46,7 +46,19 @@ public class DinnerPlanner extends JFrame {
 		
 		//Creating the first view
 		MainView mainView = new MainView();
-        IngredientView ingredientView = new IngredientView(tempData);
+        IngredientView ingredientView = new IngredientView(model.getSelectedDish(1));
+        OptionsView optionsView = new OptionsView();
+
+        // different course views
+        CourseView starterCourseView = new CourseView();
+        CourseView mainCourseView = new CourseView();
+        CourseView dessertCourseView = new CourseView();
+
+        // add the course views to different tabs
+        JTabbedPane courseSwitcher = new JTabbedPane();
+        courseSwitcher.add(starterCourseView);
+        courseSwitcher.add(mainCourseView);
+        courseSwitcher.add(dessertCourseView);
 		
 		//Adding the view to the main JFrame
 		dinnerPlanner.getContentPane().add(ingredientView);
@@ -56,7 +68,7 @@ public class DinnerPlanner extends JFrame {
 
         // make sure it's not resizable
         dinnerPlanner.setPreferredSize(new Dimension(400, 300));
-        dinnerPlanner.setResizable(false);
+        dinnerPlanner.setResizable(true);
 		
 		//and starting the JFrame
 		dinnerPlanner.setVisible(true);
