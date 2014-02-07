@@ -2,7 +2,6 @@ package se.kth.csc.iprog.dinnerplanner.swing.view;
 import se.kth.csc.iprog.dinnerplanner.model.*;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.*;
 
 /**
@@ -10,6 +9,7 @@ import java.util.*;
  *
  * Created by Axl & Bratzie on 07/02/14.
  *
+ * Completed on 07/02/14 @ 18:15
  */
 public class IngredientView extends JPanel {
 
@@ -22,9 +22,7 @@ public class IngredientView extends JPanel {
     /**
      * Creates a tableview to list ingredients
      *
-     * @param dish Object[][] containing a list<String> of list<String>
-     *                  The first list<String> should contain one list<String> per item.
-     *                  The second list<String> should contain name, quantity and cost.
+     * @param dish Takes a dish. Eats it. Likes it.
      */
     public IngredientView(Dish dish) {
         //this.model = model;
@@ -41,7 +39,8 @@ public class IngredientView extends JPanel {
 
     public Object[][] ingredientsForTable (Dish dish) {
         Set<Ingredient> ingredients = dish.getIngredients();
-        Object[][] data = new Object[15][3];
+
+        Object[][] data = new Object[ingredients.size()][3];
 
         int i = 0;
         for(Ingredient ing : ingredients) {

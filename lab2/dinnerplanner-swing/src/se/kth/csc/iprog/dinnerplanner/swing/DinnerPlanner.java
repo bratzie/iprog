@@ -46,7 +46,7 @@ public class DinnerPlanner extends JFrame {
 		
 		//Creating the first view
 		MainView mainView = new MainView();
-        IngredientView ingredientView = new IngredientView(model.getSelectedDish(1));
+        IngredientView ingredientView = new IngredientView(model.getSelectedDish(2));
         OptionsView optionsView = new OptionsView();
 
         // different course views
@@ -67,7 +67,7 @@ public class DinnerPlanner extends JFrame {
 		dinnerPlanner.pack();
 
         // make sure it's not resizable
-        dinnerPlanner.setPreferredSize(new Dimension(400, 300));
+        //dinnerPlanner.setPreferredSize(new Dimension(400, 300));
         dinnerPlanner.setResizable(true);
 		
 		//and starting the JFrame

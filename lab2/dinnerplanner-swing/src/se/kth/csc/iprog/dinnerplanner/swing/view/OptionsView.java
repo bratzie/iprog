@@ -33,17 +33,14 @@ public class OptionsView extends JPanel {
         guestCostPanel.add(totCostTitle);
         guestCostPanel.add(costField);
 
-        /*
         // init menu panel
         JLabel menuTitle = new JLabel("Dinner Menu");
-        JScrollPane menuScroll = new JScrollPane();
+        JScrollPane menuScroll = new JScrollPane(makeTextPanel("Sandwich"));
         menuPanel.add(menuTitle, BorderLayout.NORTH);
         menuPanel.add(menuScroll, BorderLayout.CENTER);
         //menuPanel.setPreferredSize(new Dimension(200, 500));
-        */
 
-        makeTextPanel("Dinner Menu");
-
+        //NOTE TO SELF, MAEK TEBUL!
 
         // init button panel
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
