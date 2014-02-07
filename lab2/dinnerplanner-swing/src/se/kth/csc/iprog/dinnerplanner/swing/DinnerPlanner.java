@@ -56,23 +56,22 @@ public class DinnerPlanner extends JFrame {
 
         // add the course views to different tabs
         JTabbedPane courseSwitcher = new JTabbedPane();
-        courseSwitcher.add(starterCourseView);
-        courseSwitcher.add(mainCourseView);
-        courseSwitcher.add(dessertCourseView);
+        courseSwitcher.add(starterCourseView, "Starter");
+        courseSwitcher.add(mainCourseView, "Main");
+        courseSwitcher.add(dessertCourseView, "Dessert");
 		
 		//Adding the view to the main JFrame
-		dinnerPlanner.getContentPane().add(ingredientView);
-		
-		//Resize it so content fits
-		dinnerPlanner.pack();
+		dinnerPlanner.getContentPane().add(optionsView);
 
         // make sure it's not resizable
-        //dinnerPlanner.setPreferredSize(new Dimension(400, 300));
         dinnerPlanner.setResizable(true);
+        dinnerPlanner.setPreferredSize(new Dimension(400, 300));
+
+		//Resize it so content fits
+		dinnerPlanner.pack();
 		
 		//and starting the JFrame
 		dinnerPlanner.setVisible(true);
-
 	}
 
 }

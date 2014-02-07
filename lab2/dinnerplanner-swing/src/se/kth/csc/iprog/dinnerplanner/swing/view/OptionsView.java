@@ -19,6 +19,7 @@ public class OptionsView extends JPanel {
     public OptionsView() {
 
         // options panel
+        //setLayout(new GridLayout(3, 1));
         optionsPanel = new JPanel(new GridLayout(3, 1)); // container
         guestCostPanel = new JPanel(new GridLayout(2,2)); // top panel with guests and cost
         menuPanel = new JPanel(new BorderLayout()); // showing full menu

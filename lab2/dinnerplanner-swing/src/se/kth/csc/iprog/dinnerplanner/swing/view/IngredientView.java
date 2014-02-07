@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.util.*;
 
 /**
- * Ingredientview. Creates a table with the headers Name, Quantity and Cost.
+ * Ingredient view. Creates a table with the headers Name, Quantity and Cost.
  *
  * Created by Axl & Bratzie on 07/02/14.
  *
@@ -44,7 +44,7 @@ public class IngredientView extends JPanel {
 
         int i = 0;
         for(Ingredient ing : ingredients) {
-            data[i] = new Object[] {ing.getName(), String.valueOf(ing.getQuantity())+" "+ing.getUnit(), String.valueOf(ing.getPrice())};
+            data[i] = new Object[] {ing.getName(), String.valueOf(ing.getQuantity())+ing.getUnit(), String.valueOf(ing.getPrice()) + "kr"};
             i++;
         }
 
