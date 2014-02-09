@@ -15,14 +15,15 @@ public class OptionsView extends JPanel {
     JPanel optionsPanel;
     JPanel guestCostPanel;
     JPanel menuPanel;
+    JPanel buttonPanel;
 
     public OptionsView() {
 
-        // options panel
-        //setLayout(new GridLayout(3, 1));
-        optionsPanel = new JPanel(new GridLayout(3, 1)); // container
+        // the panels in the view
+        setLayout(new BorderLayout());
         guestCostPanel = new JPanel(new GridLayout(2,2)); // top panel with guests and cost
         menuPanel = new JPanel(new BorderLayout()); // showing full menu
+        buttonPanel = new JPanel(new GridLayout(1, 2));
 
         // init guest/cost panel
         JComboBox numOfGuests = new JComboBox();
@@ -44,23 +45,16 @@ public class OptionsView extends JPanel {
         //NOTE TO SELF, MAEK TEBUL!
 
         // init button panel
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
-        buttonPanel.setMaximumSize(new Dimension(200, 50));
+        //buttonPanel.setMaximumSize(new Dimension(200, 50));
         JButton ingButton = new JButton("Ingredients");
         JButton prepButton = new JButton("Preparation");
         buttonPanel.add(ingButton);
         buttonPanel.add(prepButton);
 
-        // init options panel
-        optionsPanel.add(guestCostPanel);
-        optionsPanel.add(menuPanel);
-        optionsPanel.add(buttonPanel);
-        optionsPanel.setMinimumSize(new Dimension(200, 768));
-        optionsPanel.setMaximumSize(new Dimension(200, 768));
-
         // Add label to the view
-        JScrollPane scrollPane = new JScrollPane(optionsPanel);
-        this.add(scrollPane);
+        add(guestCostPanel, BorderLayout.NORTH);
+        add(menuPanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
     }
 
     public JComponent makeTextPanel (String text) {

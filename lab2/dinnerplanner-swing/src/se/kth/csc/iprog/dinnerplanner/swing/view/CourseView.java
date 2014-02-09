@@ -9,8 +9,12 @@ import java.awt.*;
  */
 public class CourseView extends JPanel {
 
-    public CourseView () {
+    /**
+     * Constructor for the CourseView class.
+     */
+    public CourseView() {
 
+        // set the layout of the panel
         setLayout(new BorderLayout());
 
         // init searchfield
@@ -20,6 +24,7 @@ public class CourseView extends JPanel {
         JPanel dishPanel = new JPanel(new GridLayout(0, 4));
         JScrollPane dishContainer = new JScrollPane(dishPanel);
 
+        // add the panels to the top panel
         add(searchField, BorderLayout.NORTH);
         add(dishContainer, BorderLayout.CENTER);
     }

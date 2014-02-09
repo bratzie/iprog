@@ -11,6 +11,15 @@ import java.util.*;
  */
 public class DishView extends JPanel{
 
+    public DishView() {
+
+    }
+
+    /**
+     * Creating
+     * @param dish
+     * @return
+     */
     public Object[][] ingredientsForTable (Dish dish) {
         Set<Ingredient> ingredients = dish.getIngredients();
         Object[][] data = {};

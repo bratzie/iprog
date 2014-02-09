@@ -15,7 +15,6 @@ public class DinnerPlanner extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-
     // fix model issues
 	private static DinnerModel model = new DinnerModel();
 	public DinnerModel getModel() {
@@ -32,16 +31,17 @@ public class DinnerPlanner extends JFrame {
     static OptionsView optionsView = new OptionsView();
 
 	public static void main(String[] args) {
-		//Initiating the main JFrame
+		// initiating the main JFrame
 		DinnerPlanner dinnerPlanner = new DinnerPlanner();
 		dinnerPlanner.setTitle("Dinner Planner");
 
         // initialize the tabbed pane
         initTabbedPane();
 
+        // set the layout we want for this JFrame
         dinnerPlanner.setLayout(new BorderLayout());
 		
-		//Adding the view to the main JFrame
+		// adding the view to the main JFrame
 		dinnerPlanner.getContentPane().add(courseSwitcher, BorderLayout.CENTER);
         dinnerPlanner.getContentPane().add(optionsView, BorderLayout.EAST);
 
@@ -49,10 +49,10 @@ public class DinnerPlanner extends JFrame {
         dinnerPlanner.setResizable(true);
         dinnerPlanner.setPreferredSize(new Dimension(1024, 768));
 
-		//Resize it so content fits
+		// resize it so content fits
 		dinnerPlanner.pack();
 		
-		//and starting the JFrame
+		// and starting the JFrame
 		dinnerPlanner.setVisible(true);
     }
 
