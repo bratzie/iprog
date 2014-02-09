@@ -9,6 +9,14 @@ import java.awt.*;
 
 public class DinnerPlanner extends JFrame {
 
+    // specify size for MW (Main Window)
+    public static final int MW_WIDTH = 1024;
+    public static final int MW_HEIGHT = 768;
+
+    // specify size for SW (Sub Window)
+    public static final int SW_WIDTH = 700;
+    public static final int SW_HEIGHT = 500;
+
 	private static final long serialVersionUID = 1L;
 
 	public DinnerPlanner() {
@@ -51,9 +59,9 @@ public class DinnerPlanner extends JFrame {
         dinnerPlanner.getContentPane().add(optionsView, BorderLayout.EAST);
         */
 
-        // make sure it's not resizable
+        // make sure it's resizable
         dinnerPlanner.setResizable(true);
-        dinnerPlanner.setPreferredSize(new Dimension(1024, 768));
+        dinnerPlanner.setPreferredSize(new Dimension(SW_WIDTH, SW_HEIGHT));
 
 		// resize it so content fits
 		dinnerPlanner.pack();

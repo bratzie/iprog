@@ -1,8 +1,11 @@
 package se.kth.csc.iprog.dinnerplanner.swing.view;
 
+import com.sun.codemodel.internal.*;
 import se.kth.csc.iprog.dinnerplanner.model.*;
+import se.kth.csc.iprog.dinnerplanner.swing.DinnerPlanner;
 
 import javax.swing.*;
+import javax.swing.JLabel;
 import java.awt.*;
 import java.util.*;
 
@@ -32,45 +35,31 @@ public class DishView extends JPanel {
 
         // get the dish name for the top panel
         JLabel dishName = new JLabel(dish.getName());
+        dishName.setFont(new Font("Sans Serif", Font.BOLD, 30));
+        dishName.setVerticalAlignment(JLabel.CENTER);
+        topPanel = new JPanel();
+        topPanel.setPreferredSize(new Dimension(DinnerPlanner.SW_WIDTH, (DinnerPlanner.SW_HEIGHT/10)*2));
         topPanel.add(dishName);
 
         // get preparation for a text field in the bottom left.
         preparationPanel = new JTextArea(dish.getDescription());
+        preparationPanel.setLineWrap(true);
+        preparationPanel.setWrapStyleWord(true);
+        preparationPanel.setPreferredSize(new Dimension(DinnerPlanner.SW_WIDTH/2, (DinnerPlanner.SW_HEIGHT/10)*8));
+        preparationPanel.setMinimumSize(new Dimension(DinnerPlanner.SW_WIDTH / 6, (DinnerPlanner.SW_HEIGHT / 10) * 8));
 
         // get ingredient view for the dish
         ingredientPanel = new IngredientView(dish);
+        ingredientPanel.setPreferredSize(new Dimension(DinnerPlanner.SW_WIDTH/2, (DinnerPlanner.SW_HEIGHT/10)*8));
+        ingredientPanel.setMinimumSize(new Dimension(DinnerPlanner.SW_WIDTH/6, (DinnerPlanner.SW_HEIGHT/10)*8));
 
         // adjust the splitpane
-        botPanel = new JSplitPane(JSplitPane.VERTICAL_SPLIT, ingredientPanel, preparationPanel);
-        botPanel.setDividerLocation(0.5);
+        botPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, preparationPanel, ingredientPanel);
+
+        botPanel.setDividerLocation((DinnerPlanner.SW_WIDTH/6)*2);
 
         add(topPanel, BorderLayout.NORTH);
         add(botPanel, BorderLayout.CENTER);
-    }
-
-
-    /*
-    THIS PROBABLY DOESN'T NEED TO BE HERE...
-     */
-    /**
-     * Grabs ingredients from the Dish object passed as a parameter and
-     * returns them as an array of array of strings. This is then used for
-     * creating a table in the ingredient view.
-     *
-     * @param dish the dish you want ingredients of
-     * @return a as an array of array of strings
-     */
-    public Object[][] ingredientsForTable (Dish dish) {
-        Set<Ingredient> ingredients = dish.getIngredients();
-        Object[][] data = {};
-
-        int i = 0;
-        for(Ingredient ing : ingredients) {
-            data[i] = new Object[] {ing.getName(), String.valueOf(ing.getQuantity())+" "+ing.getUnit(), String.valueOf(ing.getPrice())};
-            i++;
-        }
-
-        return data;
     }
 }
 
