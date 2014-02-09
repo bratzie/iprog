@@ -12,8 +12,7 @@ public class OptionsView extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
-    JPanel optionsPanel;
-    JPanel guestCostPanel;
+    JPanel topPanel;
     JPanel menuPanel;
     JPanel buttonPanel;
 
@@ -21,38 +20,36 @@ public class OptionsView extends JPanel {
 
         // the panels in the view
         setLayout(new BorderLayout());
-        guestCostPanel = new JPanel(new GridLayout(2,2)); // top panel with guests and cost
-        menuPanel = new JPanel(new BorderLayout()); // showing full menu
-        buttonPanel = new JPanel(new GridLayout(1, 2));
 
         // init guest/cost panel
+        topPanel = new JPanel(new GridLayout(2,2)); // top panel with guests and cost
         JComboBox numOfGuests = new JComboBox();
-        JLabel numGuestsTitle = new JLabel("Number of guests:");
+        JLabel numGuestsTitle = new JLabel("Number of guests:"); // TODO make sure you can select amt of guests.
         JLabel totCostTitle = new JLabel("Total cost:");
-        JTextField costField = new JTextField("100€");
-        guestCostPanel.add(numGuestsTitle);
-        guestCostPanel.add(numOfGuests);
-        guestCostPanel.add(totCostTitle);
-        guestCostPanel.add(costField);
+        JTextField costField = new JTextField("100€"); // TODO update this dynamically when changing menu.
+        topPanel.add(numGuestsTitle);
+        topPanel.add(numOfGuests);
+        topPanel.add(totCostTitle);
+        topPanel.add(costField);
 
         // init menu panel
+        menuPanel = new JPanel(new BorderLayout());
         JLabel menuTitle = new JLabel("Dinner Menu");
-        JScrollPane menuScroll = new JScrollPane(makeTextPanel("Sandwich"));
+        JScrollPane menuScroll = new JScrollPane(makeTextPanel("Sandwich")); // TODO add interactivity? Make it scrollable.
         menuPanel.add(menuTitle, BorderLayout.NORTH);
         menuPanel.add(menuScroll, BorderLayout.CENTER);
-        //menuPanel.setPreferredSize(new Dimension(200, 500));
 
         //NOTE TO SELF, MAEK TEBUL!
 
         // init button panel
-        //buttonPanel.setMaximumSize(new Dimension(200, 50));
+        buttonPanel = new JPanel(new GridLayout(1, 2));
         JButton ingButton = new JButton("Ingredients");
         JButton prepButton = new JButton("Preparation");
         buttonPanel.add(ingButton);
         buttonPanel.add(prepButton);
 
         // Add label to the view
-        add(guestCostPanel, BorderLayout.NORTH);
+        add(topPanel, BorderLayout.NORTH);
         add(menuPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
     }

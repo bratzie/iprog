@@ -15,8 +15,7 @@ public class IngredientView extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
-    DinnerModel model;
-
+    // Table headers. hardcoded second parameter for the ingredients table.
     String[] columnNames = {"Name", "Quantity", "Cost"};
 
     /**
@@ -25,7 +24,6 @@ public class IngredientView extends JPanel {
      * @param dish Takes a dish. Eats it. Likes it.
      */
     public IngredientView(Dish dish) {
-        //this.model = model;
 
         Object[][] tableData = ingredientsForTable(dish);
 
@@ -37,6 +35,14 @@ public class IngredientView extends JPanel {
         this.add(tableContainer);
     }
 
+    /**
+     * Grabs ingredients from the Dish object passed as a parameter and
+     * returns them as an array of array of strings. This is then used for
+     * creating a table in the ingredient view.
+     *
+     * @param dish the dish you want ingredients of
+     * @return a as an array of array of strings
+     */
     public Object[][] ingredientsForTable (Dish dish) {
         Set<Ingredient> ingredients = dish.getIngredients();
 
