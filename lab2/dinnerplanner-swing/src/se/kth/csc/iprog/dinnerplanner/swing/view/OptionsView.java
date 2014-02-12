@@ -1,10 +1,11 @@
 package se.kth.csc.iprog.dinnerplanner.swing.view;
 
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  *
@@ -29,7 +30,6 @@ public class OptionsView extends JPanel {
 
         // init guest/cost panel
         topPanel = new JPanel(new GridLayout(2,2)); // top panel with guests and cost
-        //int[] noGuests = {1,2,3,4,5};
         ArrayList<Integer> g = new ArrayList<Integer>();
         g.add(1);
         g.add(2);
@@ -41,12 +41,22 @@ public class OptionsView extends JPanel {
         topPanel.add(numGuestsTitle);
         topPanel.add(numOfGuests);
         topPanel.add(totCostTitle);
-        //topPanel.add(costField);
 
-        // init menu panel
+        // init Dinner menu panel
         menuPanel = new JPanel(new BorderLayout());
         JLabel menuTitle = new JLabel("Dinner Menu");
-        JScrollPane menuScroll = new JScrollPane(makeTextPanel("Sandwich")); // TODO add interactivity? Make it scrollable.
+
+
+        Set<Dish> dishes = new HashSet<Dish>(model.getFullMenu());
+        JPanel dishPanel = new JPanel();
+        dishPanel.setLayout(new BoxLayout(dishPanel, BoxLayout.PAGE_AXIS));
+
+        for (Dish dish:dishes){
+            JComponent temp = makeDishPanel(dish); //TODO get images to work
+            dishPanel.add(temp);
+        }
+        JScrollPane menuScroll = new JScrollPane(dishPanel); // TODO add interactivity? Make it scrollable.
+
         menuPanel.add(menuTitle, BorderLayout.NORTH);
         menuPanel.add(menuScroll, BorderLayout.CENTER);
 
@@ -72,5 +82,35 @@ public class OptionsView extends JPanel {
         panel.setLayout (new GridLayout(1,1));
         panel.add(filler);
         return panel;
+    }
+
+    public JComponent makeDishPanel (Dish dish){
+        JPanel panel = new JPanel(false);
+        ImageIcon icon = createImageIcon(dish.getImage(),"");
+        int dishType = dish.getType();
+        String type;
+        if (dishType == 1 ){
+            type = "Starter";
+        } else if(dishType == 2){
+            type = "Main";
+        } else {
+            type = "Dessert";
+        }
+
+        JLabel label = new JLabel(type + " : " + dish.getName(), icon, JLabel.HORIZONTAL);
+        panel.add(label);
+        return panel;
+    }
+
+    /** Returns an ImageIcon, or null if the path was invalid. */
+    protected ImageIcon createImageIcon(String path,
+                                        String description) {
+        java.net.URL imgURL = getClass().getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL, description);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
     }
 }
