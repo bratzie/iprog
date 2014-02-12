@@ -33,6 +33,7 @@ public class CourseView extends JPanel {
 
         // init course panel
         JPanel dishPanel = new JPanel(new GridLayout(0, 4));
+        dishPanel.setLayout(new BoxLayout(dishPanel, BoxLayout.PAGE_AXIS));
         Set<Dish> dishes = new HashSet<Dish>(model.getDishesOfType(course));
 
         for (Dish dish:dishes) {

@@ -86,7 +86,8 @@ public class OptionsView extends JPanel {
 
     public JComponent makeDishPanel (Dish dish){
         JPanel panel = new JPanel(false);
-        ImageIcon icon = createImageIcon(dish.getImage(),"");
+        JButton removeButton = new JButton("X");
+        ImageIcon icon = createImageIcon("/images/" + dish.getImage(),"");
         int dishType = dish.getType();
         String type;
         if (dishType == 1 ){
@@ -99,6 +100,7 @@ public class OptionsView extends JPanel {
 
         JLabel label = new JLabel(type + " : " + dish.getName(), icon, JLabel.HORIZONTAL);
         panel.add(label);
+        panel.add(removeButton);
         return panel;
     }
 
