@@ -1,6 +1,5 @@
 package se.kth.csc.iprog.dinnerplanner.swing.view;
 
-import com.sun.codemodel.internal.*;
 import se.kth.csc.iprog.dinnerplanner.model.*;
 import se.kth.csc.iprog.dinnerplanner.swing.DinnerPlanner;
 

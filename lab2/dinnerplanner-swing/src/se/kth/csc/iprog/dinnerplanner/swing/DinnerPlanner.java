@@ -34,9 +34,9 @@ public class DinnerPlanner extends JFrame {
 
     // initialize panels
     static JTabbedPane courseSwitcher = new JTabbedPane();
-    static MainView mainView = new MainView();
+    static MainView mainView = new MainView(model); //ADDED
     static IngredientView ingredientView = new IngredientView(model.getSelectedDish(2));
-    static OptionsView optionsView = new OptionsView();
+    static OptionsView optionsView = new OptionsView(model);
     static DishView dishView = new DishView(model.getSelectedDish(2));
 
 	public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class DinnerPlanner extends JFrame {
 		dinnerPlanner.setTitle("Dinner Planner");
 
         // initialize the panes
-        initTabbedPane();
+        initTabbedPane(model);
 
         /*
         courseSwitcher.setMinimumSize(new Dimension(300, 300));
@@ -75,11 +75,11 @@ public class DinnerPlanner extends JFrame {
 		dinnerPlanner.setVisible(true);
     }
 
-    private static void initTabbedPane() {
+    private static void initTabbedPane(DinnerModel model) {
         // different course views
-        CourseView starterCourseView = new CourseView();
-        CourseView mainCourseView = new CourseView();
-        CourseView dessertCourseView = new CourseView();
+        CourseView starterCourseView = new CourseView(model);
+        CourseView mainCourseView = new CourseView(model);
+        CourseView dessertCourseView = new CourseView(model);
 
         // add the course views to different tabs
         courseSwitcher.add(starterCourseView, "Starter");

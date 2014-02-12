@@ -1,7 +1,10 @@
 package se.kth.csc.iprog.dinnerplanner.swing.view;
 
+import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,25 +15,33 @@ public class OptionsView extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
+    DinnerModel model;
     JPanel topPanel;
     JPanel menuPanel;
     JPanel buttonPanel;
 
-    public OptionsView() {
+    public OptionsView(DinnerModel model) {
+
+        this.model = model;
 
         // the panels in the view
         setLayout(new BorderLayout());
 
         // init guest/cost panel
         topPanel = new JPanel(new GridLayout(2,2)); // top panel with guests and cost
-        JComboBox numOfGuests = new JComboBox();
-        JLabel numGuestsTitle = new JLabel("Number of guests:"); // TODO make sure you can select amt of guests.
-        JLabel totCostTitle = new JLabel("Total cost:");
-        JTextField costField = new JTextField("100€"); // TODO update this dynamically when changing menu.
+        //int[] noGuests = {1,2,3,4,5};
+        ArrayList<Integer> g = new ArrayList<Integer>();
+        g.add(1);
+        g.add(2);
+        JComboBox numOfGuests = new JComboBox(g.toArray());
+
+        JLabel numGuestsTitle = new JLabel("Number of guests:");
+        JLabel totCostTitle = new JLabel();
+        totCostTitle.setText("Total cost: " + model.getTotalMenuPrice());
         topPanel.add(numGuestsTitle);
         topPanel.add(numOfGuests);
         topPanel.add(totCostTitle);
-        topPanel.add(costField);
+        //topPanel.add(costField);
 
         // init menu panel
         menuPanel = new JPanel(new BorderLayout());

@@ -1,5 +1,7 @@
 package se.kth.csc.iprog.dinnerplanner.swing.view;
 
+import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,10 +11,14 @@ import java.awt.*;
  */
 public class CourseView extends JPanel {
 
+    DinnerModel model;
+
     /**
      * Constructor for the CourseView class.
      */
-    public CourseView() {
+    public CourseView(DinnerModel model) {
+
+        this.model = model;
 
         // set the layout of the panel
         setLayout(new BorderLayout());

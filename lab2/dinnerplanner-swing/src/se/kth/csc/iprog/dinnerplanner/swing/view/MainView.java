@@ -1,11 +1,15 @@
 package se.kth.csc.iprog.dinnerplanner.swing.view;
 
+import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class MainView extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
+
+    DinnerModel model;
 	
 	// The components of our view
 	JButton plusButton = new JButton();
@@ -20,7 +24,9 @@ public class MainView extends JPanel {
     JPanel menuPanel;
     JTabbedPane tabbedPanel = new JTabbedPane();
 	
-	public MainView() {
+	public MainView(DinnerModel model) {
+
+        this.model = model;
 
         // main container panel
         topPanel = new JPanel(new BorderLayout());
@@ -39,12 +45,12 @@ public class MainView extends JPanel {
         // init guest/cost panel
         JComboBox numOfGuests = new JComboBox();
         JLabel numGuestsTitle = new JLabel("Number of guests:");
-        JLabel totCostTitle = new JLabel("Total cost:");
-        JTextField costField = new JTextField("100€");
+        JLabel totCostTitle = new JLabel();
+        totCostTitle.setText("Total cost: " + model.getTotalMenuPrice()); //ADDED
         guestCostPanel.add(numGuestsTitle);
         guestCostPanel.add(numOfGuests);
         guestCostPanel.add(totCostTitle);
-        guestCostPanel.add(costField);
+
 
         // init menu panel
         JLabel menuTitle = new JLabel("Dinner Menu");
