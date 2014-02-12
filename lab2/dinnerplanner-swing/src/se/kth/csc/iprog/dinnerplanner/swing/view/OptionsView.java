@@ -86,7 +86,7 @@ public class OptionsView extends JPanel {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
         panel.setAlignmentX(JPanel.LEFT_ALIGNMENT);
-        panel.setPreferredSize(new Dimension(200, 100));
+        panel.setPreferredSize(new Dimension(400, 100));
 
         // determine type of dish
         int dishType = dish.getType();

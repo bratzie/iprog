@@ -45,7 +45,7 @@ public class DishView extends JPanel {
         preparationPanel.setLineWrap(true);
         preparationPanel.setWrapStyleWord(true);
         preparationPanel.setPreferredSize(new Dimension(DinnerPlanner.SW_WIDTH/2, (DinnerPlanner.SW_HEIGHT/10)*8));
-        preparationPanel.setMinimumSize(new Dimension(DinnerPlanner.SW_WIDTH / 6, (DinnerPlanner.SW_HEIGHT / 10) * 8));
+        preparationPanel.setMinimumSize(new Dimension(DinnerPlanner.SW_WIDTH/6, (DinnerPlanner.SW_HEIGHT/10)*8));
 
         // get ingredient view for the dish
         ingredientPanel = new IngredientView(dish);

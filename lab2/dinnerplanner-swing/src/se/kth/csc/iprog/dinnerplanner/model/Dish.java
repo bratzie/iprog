@@ -35,6 +35,17 @@ public class Dish {
 	public void setType(int type) {
 		this.type = type;
 	}
+    public String getTypeText() {
+        String tempString;
+        switch (type) {
+            case 1: tempString =  "Starter"; break;
+            case 2: tempString =  "Main"; break;
+            case 3: tempString =  "Dessert"; break;
+            default: tempString =  "Unknown type"; break;
+        }
+        return tempString;
+    }
+
 	public String getImage() {
 		return image;
 	}

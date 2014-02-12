@@ -38,6 +38,7 @@ public class DinnerPlanner extends JFrame {
     static IngredientView ingredientView = new IngredientView(model.getSelectedDish(2));
     static OptionsView optionsView = new OptionsView(model);
     static DishView dishView = new DishView(model.getSelectedDish(2));
+    static PreparationView prepView = new PreparationView(model.getDishes());
 
 	public static void main(String[] args) {
 
@@ -52,16 +53,16 @@ public class DinnerPlanner extends JFrame {
         dinnerPlanner.setLayout(new BorderLayout());
 		
 		// adding the view to the main JFrame
-        /*
-        dinnerPlanner.getContentPane().add(dishView, BorderLayout.CENTER);
-        */
 
+        dinnerPlanner.getContentPane().add(prepView, BorderLayout.CENTER);
+
+/*
 		dinnerPlanner.getContentPane().add(courseSwitcher, BorderLayout.CENTER);
         dinnerPlanner.getContentPane().add(optionsView, BorderLayout.EAST);
-
+*/
         // make sure it's resizable
         dinnerPlanner.setResizable(true);
-        dinnerPlanner.setPreferredSize(new Dimension(MW_WIDTH, MW_HEIGHT));
+        dinnerPlanner.setPreferredSize(new Dimension(SW_WIDTH, SW_HEIGHT));
 
 		// resize it so content fits
 		dinnerPlanner.pack();
