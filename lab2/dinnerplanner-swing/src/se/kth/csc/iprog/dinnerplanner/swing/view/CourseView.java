@@ -33,38 +33,29 @@ public class CourseView extends JPanel {
 
         // init course panel
         JPanel dishPanel = new JPanel(new GridLayout(0, 4));
-        dishPanel.setLayout(new BoxLayout(dishPanel, BoxLayout.PAGE_AXIS));
+        //dishPanel.setLayout(new BoxLayout(dishPanel, BoxLayout.PAGE_AXIS));
         Set<Dish> dishes = new HashSet<Dish>(model.getDishesOfType(course));
 
         for (Dish dish:dishes) {
-         //   JComponent temp = makeTextPanel(dish);
-            ///Users/bratzie/repos/iprog/lab2/dinnerplanner-swing/src/images/meatballs.jpg
-            ImageIcon temp = createImageIcon("/images/" + dish.getImage(), dish.getDescription()); //TODO get images to work
-            JLabel tempLabel = new JLabel(dish.getName(),temp,JLabel.CENTER);
-            dishPanel.add(tempLabel);
+            JPanel dishBox = new JPanel();
+            dishBox.setLayout(new BoxLayout(dishBox, BoxLayout.Y_AXIS));
+            ImageIcon image = createImageIcon("/images/" + dish.getImage(), dish.getDescription());
+            JLabel imageLabel = new JLabel(image);
+            JLabel label = new JLabel(dish.getName(),JLabel.CENTER);
+            dishBox.add(imageLabel);
+            dishBox.add(label);
+
+            dishPanel.add(dishBox);
         }
         JScrollPane dishContainer = new JScrollPane(dishPanel);
-
 
         // add the panels to the top panel
         add(searchField, BorderLayout.NORTH);
         add(dishContainer, BorderLayout.CENTER);
     }
 
-
-    public JComponent makeTextPanel (Dish dish) {
-        JPanel panel = new JPanel(false);
-        String  text = dish.getName();
-        JLabel filler = new JLabel(text);
-        filler.setHorizontalAlignment(JLabel.CENTER);
-        panel.setLayout (new GridLayout(1,1));
-        panel.add(filler);
-        return panel;
-    }
-
     /** Returns an ImageIcon, or null if the path was invalid. */
-    protected ImageIcon createImageIcon(String path,
-                                        String description) {
+    protected ImageIcon createImageIcon(String path, String description) {
         java.net.URL imgURL = getClass().getResource(path);
         if (imgURL != null) {
             return new ImageIcon(imgURL, description);

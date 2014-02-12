@@ -10,8 +10,6 @@ public class DinnerModel implements IDinnerModel {
 	Set<Dish> dishes = new HashSet<Dish>();
 
     int noGuests;
-    int noDishes;
-
 	
 	/**
 	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
@@ -63,6 +61,34 @@ public class DinnerModel implements IDinnerModel {
 		dish2.addIngredient(dish2ing10);
 		dish2.addIngredient(dish2ing11);
 		dishes.add(dish2);
+
+        //Adding some example data, you can add more
+        Dish dish3 = new Dish("Sour Dough",Dish.STARTER,"sourdough.jpg","In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.");
+        Ingredient dish3ing1 = new Ingredient("eggs",0.5,"",1);
+        Ingredient dish3ing2 = new Ingredient("milk",30,"ml",6);
+        Ingredient dish3ing3 = new Ingredient("brown sugar",7,"g",1);
+        Ingredient dish3ing4 = new Ingredient("ground nutmeg",0.5,"g",12);
+        Ingredient dish3ing5 = new Ingredient("white bread",2,"slices",2);
+        dish1.addIngredient(dish3ing1);
+        dish1.addIngredient(dish3ing2);
+        dish1.addIngredient(dish3ing3);
+        dish1.addIngredient(dish3ing4);
+        dish1.addIngredient(dish3ing5);
+        dishes.add(dish3);
+
+        //Adding some example data, you can add more
+        Dish dish4 = new Dish("Cream of the Ice",Dish.DESERT,"icecream.jpg","In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.");
+        Ingredient dish4ing1 = new Ingredient("eggs",0.5,"",1);
+        Ingredient dish4ing2 = new Ingredient("milk",30,"ml",6);
+        Ingredient dish4ing3 = new Ingredient("brown sugar",7,"g",1);
+        Ingredient dish4ing4 = new Ingredient("ground nutmeg",0.5,"g",12);
+        Ingredient dish4ing5 = new Ingredient("white bread",2,"slices",2);
+        dish4.addIngredient(dish4ing1);
+        dish4.addIngredient(dish4ing2);
+        dish4.addIngredient(dish4ing3);
+        dish4.addIngredient(dish4ing4);
+        dish4.addIngredient(dish4ing5);
+        dishes.add(dish4);
 	}
 	
 	/**

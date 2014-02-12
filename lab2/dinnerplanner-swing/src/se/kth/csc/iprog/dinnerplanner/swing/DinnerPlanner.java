@@ -34,7 +34,7 @@ public class DinnerPlanner extends JFrame {
 
     // initialize panels
     static JTabbedPane courseSwitcher = new JTabbedPane();
-   // static MainView mainView = new MainView(model); //ADDED
+    // static MainView mainView = new MainView(model); //ADDED
     static IngredientView ingredientView = new IngredientView(model.getSelectedDish(2));
     static OptionsView optionsView = new OptionsView(model);
     static DishView dishView = new DishView(model.getSelectedDish(2));
@@ -47,11 +47,6 @@ public class DinnerPlanner extends JFrame {
 
         // initialize the panes
         initTabbedPane(model);
-
-        /*
-        courseSwitcher.setMinimumSize(new Dimension(300, 300));
-        optionsView.setMinimumSize(new Dimension(200,300));
-        */
 
         // set the layout we want for this JFrame
         dinnerPlanner.setLayout(new BorderLayout());

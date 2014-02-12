@@ -31,30 +31,35 @@ public class OptionsView extends JPanel {
         // init guest/cost panel
         topPanel = new JPanel(new GridLayout(2,2)); // top panel with guests and cost
         ArrayList<Integer> g = new ArrayList<Integer>();
-        g.add(1);
-        g.add(2);
+
+        for (int i = 0; i < 25; i++) {
+            g.add(i);
+        }
+
         JComboBox numOfGuests = new JComboBox(g.toArray());
 
         JLabel numGuestsTitle = new JLabel("Number of guests:");
         JLabel totCostTitle = new JLabel();
-        totCostTitle.setText("Total cost: " + model.getTotalMenuPrice());
+        totCostTitle.setText("Total cost:");
+        JLabel totCostValue = new JLabel("  " + model.getTotalMenuPrice());
         topPanel.add(numGuestsTitle);
         topPanel.add(numOfGuests);
         topPanel.add(totCostTitle);
+        topPanel.add(totCostValue);
 
         // init Dinner menu panel
         menuPanel = new JPanel(new BorderLayout());
         JLabel menuTitle = new JLabel("Dinner Menu");
 
-
         Set<Dish> dishes = new HashSet<Dish>(model.getFullMenu());
         JPanel dishPanel = new JPanel();
         dishPanel.setLayout(new BoxLayout(dishPanel, BoxLayout.PAGE_AXIS));
 
-        for (Dish dish:dishes){
-            JComponent temp = makeDishPanel(dish); //TODO get images to work
+        for (Dish dish:dishes) {
+            JComponent temp = makeDishPanel(dish);
             dishPanel.add(temp);
         }
+
         JScrollPane menuScroll = new JScrollPane(dishPanel); // TODO add interactivity? Make it scrollable.
 
         menuPanel.add(menuTitle, BorderLayout.NORTH);
@@ -75,19 +80,15 @@ public class OptionsView extends JPanel {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    public JComponent makeTextPanel (String text) {
-        JPanel panel = new JPanel(false);
-        JLabel filler = new JLabel(text);
-        filler.setHorizontalAlignment(JLabel.CENTER);
-        panel.setLayout (new GridLayout(1,1));
-        panel.add(filler);
-        return panel;
-    }
+    protected JComponent makeDishPanel (Dish dish){
 
-    public JComponent makeDishPanel (Dish dish){
-        JPanel panel = new JPanel(false);
-        JButton removeButton = new JButton("X");
-        ImageIcon icon = createImageIcon("/images/" + dish.getImage(),"");
+        // set layout
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+        panel.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+        panel.setPreferredSize(new Dimension(200, 100));
+
+        // determine type of dish
         int dishType = dish.getType();
         String type;
         if (dishType == 1 ){
@@ -98,9 +99,18 @@ public class OptionsView extends JPanel {
             type = "Dessert";
         }
 
-        JLabel label = new JLabel(type + " : " + dish.getName(), icon, JLabel.HORIZONTAL);
+        // get dish-specific data
+        ImageIcon image = createImageIcon("/images/" + dish.getImage(), dish.getDescription());
+        JLabel imageLabel = new JLabel(image); // insert image into label to display it
+        JLabel label = new JLabel(type + ": " + dish.getName(), JLabel.LEFT);
+        JButton removeButton = new JButton("X");
+        removeButton.setAlignmentX(JButton.RIGHT_ALIGNMENT);
+
+        // add components to panel
+        panel.add(imageLabel);
         panel.add(label);
         panel.add(removeButton);
+
         return panel;
     }
 
