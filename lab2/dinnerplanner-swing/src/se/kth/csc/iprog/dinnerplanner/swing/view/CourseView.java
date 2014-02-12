@@ -35,9 +35,10 @@ public class CourseView extends JPanel {
         JPanel dishPanel = new JPanel(new GridLayout(0, 4));
         Set<Dish> dishes = new HashSet<Dish>(model.getDishesOfType(course));
 
-        for (Dish dish:dishes){
+        for (Dish dish:dishes) {
          //   JComponent temp = makeTextPanel(dish);
-            ImageIcon temp = createImageIcon(dish.getImage(), dish.getDescription()); //TODO get images to work
+            ///Users/bratzie/repos/iprog/lab2/dinnerplanner-swing/src/images/meatballs.jpg
+            ImageIcon temp = createImageIcon("/images/" + dish.getImage(), dish.getDescription()); //TODO get images to work
             JLabel tempLabel = new JLabel(dish.getName(),temp,JLabel.CENTER);
             dishPanel.add(tempLabel);
         }
