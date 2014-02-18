@@ -12,7 +12,7 @@ import java.util.*;
  *
  * Created by bratzie on 07/02/14.
  */
-public class OptionsView extends JPanel {
+public class OptionsView extends JPanel implements Observer {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,6 +24,8 @@ public class OptionsView extends JPanel {
     public OptionsView(DinnerModel model) {
 
         this.model = model;
+        model.addObserver(this);
+
 
         // the panels in the view
         setLayout(new BorderLayout());
@@ -78,6 +80,10 @@ public class OptionsView extends JPanel {
         add(topPanel, BorderLayout.NORTH);
         add(menuPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    public void update(Observable obj, Object arg) {
+        System.out.println("Update called");
     }
 
     protected JComponent makeDishPanel (Dish dish){
