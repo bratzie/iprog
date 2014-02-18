@@ -20,6 +20,7 @@ public class OptionsView extends JPanel implements Observer {
     JPanel topPanel;
     JPanel menuPanel;
     JPanel buttonPanel;
+    JComboBox numOfGuests;
 
     public OptionsView(DinnerModel model) {
 
@@ -38,7 +39,7 @@ public class OptionsView extends JPanel implements Observer {
             g.add(i);
         }
 
-        JComboBox numOfGuests = new JComboBox(g.toArray());
+        numOfGuests = new JComboBox(g.toArray());
 
         JLabel numGuestsTitle = new JLabel("Number of guests:");
         JLabel totCostTitle = new JLabel();

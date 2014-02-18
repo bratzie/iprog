@@ -37,6 +37,7 @@ public class DinnerPlanner extends JFrame {
     // static MainView mainView = new MainView(model); //ADDED
     static IngredientView ingredientView = new IngredientView(model.getSelectedDish(2));
     static OptionsView optionsView = new OptionsView(model);
+    static OptionsViewController optionsCtrl = new OptionsViewController(model, optionsView);
     static DishView dishView = new DishView(model.getSelectedDish(2));
     static PreparationView prepView = new PreparationView(model.getDishes());
 
