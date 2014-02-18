@@ -37,9 +37,10 @@ public class DinnerPlanner extends JFrame {
     // static MainView mainView = new MainView(model); //ADDED
     static IngredientView ingredientView = new IngredientView(model.getSelectedDish(2));
     static OptionsView optionsView = new OptionsView(model);
-    static OptionsViewController optionsCtrl = new OptionsViewController(model, optionsView);
-    static DishView dishView = new DishView(model.getSelectedDish(2));
     static PreparationView prepView = new PreparationView(model.getDishes());
+    static OptionsViewController optionsCtrl = new OptionsViewController(model, optionsView, ingredientView, prepView);
+    static DishView dishView = new DishView(model.getSelectedDish(2));
+
 
 	public static void main(String[] args) {
 
@@ -75,8 +76,13 @@ public class DinnerPlanner extends JFrame {
     private static void initTabbedPane(DinnerModel model) {
         // different course views
         CourseView starterCourseView = new CourseView(model, 1);
+        CourseViewController starterCourseViewController = new CourseViewController(model, starterCourseView);
+
         CourseView mainCourseView = new CourseView(model, 2);
+        CourseViewController mainCourseViewController = new CourseViewController(model, mainCourseView);
+
         CourseView dessertCourseView = new CourseView(model, 3);
+        CourseViewController dessertCourseViewController = new CourseViewController(model, dessertCourseView);
 
         // add the course views to different tabs
         courseSwitcher.add(starterCourseView, "Starter");

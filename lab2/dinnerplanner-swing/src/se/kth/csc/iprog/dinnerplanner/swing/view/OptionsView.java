@@ -21,6 +21,8 @@ public class OptionsView extends JPanel implements Observer {
     JPanel menuPanel;
     JPanel buttonPanel;
     JComboBox numOfGuests;
+    JButton ingButton;
+    JButton prepButton;
 
     public OptionsView(DinnerModel model) {
 
@@ -72,8 +74,8 @@ public class OptionsView extends JPanel implements Observer {
 
         // init button panel
         buttonPanel = new JPanel(new GridLayout(1, 2));
-        JButton ingButton = new JButton("Ingredients");
-        JButton prepButton = new JButton("Preparation");
+        ingButton = new JButton("Ingredients");
+        prepButton = new JButton("Preparation");
         buttonPanel.add(ingButton);
         buttonPanel.add(prepButton);
 
