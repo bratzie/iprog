@@ -28,3 +28,4 @@ proguard/
 *.ipr
 *.iws
 .idea/
+lab2/dinnerplanner-swing/out/
