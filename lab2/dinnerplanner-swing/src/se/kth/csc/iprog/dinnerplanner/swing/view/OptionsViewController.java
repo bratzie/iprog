@@ -27,6 +27,7 @@ public class OptionsViewController implements ActionListener{
 
         view.numOfGuests.addActionListener(this);
         view.ingButton.addActionListener(this);
+        view.prepButton.addActionListener(this);
 
     }
 
