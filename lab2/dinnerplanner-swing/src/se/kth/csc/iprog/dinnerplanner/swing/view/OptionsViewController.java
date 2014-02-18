@@ -62,7 +62,7 @@ public class OptionsViewController implements ActionListener{
     }
 
     public void showPopUpP(PreparationView view) {
-        JFrame prFrame = new JFrame();
+        JFrame prFrame = new JFrame("Preparations");
         prFrame.getContentPane().add(view);
         // make sure it's resizable
         prFrame.setResizable(true);

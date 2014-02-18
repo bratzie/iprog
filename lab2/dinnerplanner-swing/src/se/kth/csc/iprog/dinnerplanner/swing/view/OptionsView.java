@@ -5,6 +5,8 @@ import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 /**
@@ -113,6 +115,12 @@ public class OptionsView extends JPanel implements Observer {
         JLabel imageLabel = new JLabel(image); // insert image into label to display it
         JLabel label = new JLabel(type + ": " + dish.getName(), JLabel.LEFT);
         JButton removeButton = new JButton("X");
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //menuPanel.remove(panel);
+            }
+        });
         removeButton.setAlignmentX(JButton.RIGHT_ALIGNMENT);
 
         // add components to panel
