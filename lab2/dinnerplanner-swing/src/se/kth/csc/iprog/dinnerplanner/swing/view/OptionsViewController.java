@@ -39,7 +39,7 @@ public class OptionsViewController implements ActionListener{
 
         }
         else if(e.getSource() == view.prepButton){
-            showPopUp(prView);
+            showPopUpP(prView);
         }
 
     }
@@ -52,7 +52,7 @@ public class OptionsViewController implements ActionListener{
 
     }
 
-    public void showPopUp(PreparationView view) {
+    public void showPopUpP(PreparationView view) {
         JFrame prFrame = new JFrame();
         prFrame.getContentPane().add(view);
         prFrame.setVisible(true);
