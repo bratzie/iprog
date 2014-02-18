@@ -18,6 +18,7 @@ public class CourseView extends JPanel implements Observer {
 
     DinnerModel model;
     int course;
+    public JTextField searchField;
 
     /**
      * Constructor for the CourseView class.
@@ -32,7 +33,7 @@ public class CourseView extends JPanel implements Observer {
         setLayout(new BorderLayout());
 
         // init searchfield
-        JTextField searchField = new JTextField("Search here...");
+        searchField = new JTextField("");
 
         // init course panel
         JPanel dishPanel = new JPanel(new GridLayout(0, 4));

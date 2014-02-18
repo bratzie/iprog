@@ -75,8 +75,13 @@ public class DinnerPlanner extends JFrame {
     private static void initTabbedPane(DinnerModel model) {
         // different course views
         CourseView starterCourseView = new CourseView(model, 1);
+        CourseViewController starterCourseViewController = new CourseViewController(model, starterCourseView);
+
         CourseView mainCourseView = new CourseView(model, 2);
+        CourseViewController mainCourseViewController = new CourseViewController(model, mainCourseView);
+
         CourseView dessertCourseView = new CourseView(model, 3);
+        CourseViewController dessertCourseViewController = new CourseViewController(model, dessertCourseView);
 
         // add the course views to different tabs
         courseSwitcher.add(starterCourseView, "Starter");
