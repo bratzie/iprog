@@ -1,5 +1,6 @@
 package se.kth.csc.iprog.dinnerplanner.swing.view;
 
+import se.kth.csc.iprog.dinnerplanner.swing.*;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
 import javax.swing.*;
@@ -47,11 +48,11 @@ public class OptionsViewController implements ActionListener{
 
     public void showPopUp(IngredientView view) {
 
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("Ingredients");
         frame.getContentPane().add(view);
         // make sure it's resizable
         frame.setResizable(true);
-        frame.setPreferredSize(new Dimension(700, 500));
+        frame.setPreferredSize(new Dimension(DinnerPlanner.SW_WIDTH, DinnerPlanner.SW_HEIGHT));
 
         // resize it so content fits
         frame.pack();
@@ -64,7 +65,7 @@ public class OptionsViewController implements ActionListener{
         prFrame.getContentPane().add(view);
         // make sure it's resizable
         prFrame.setResizable(true);
-        prFrame.setPreferredSize(new Dimension(700, 500));
+        prFrame.setPreferredSize(new Dimension(DinnerPlanner.SW_WIDTH, DinnerPlanner.SW_HEIGHT));
 
         // resize it so content fits
         prFrame.pack();
