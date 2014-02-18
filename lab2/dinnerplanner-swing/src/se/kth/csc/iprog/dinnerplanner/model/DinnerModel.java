@@ -99,7 +99,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
         dishes.add(dish6);
 
         // grapes
-        Dish dish7 = new Dish("Grapes",Dish.DESERT,"grapes.jpg","Placeholder");
+        Dish dish7 = new Dish("Berries",Dish.DESERT,"berries.jpg","Placeholder");
         Ingredient dish7ing1 = new Ingredient("Grapes",20,"",1);
         dish7.addIngredient(dish7ing1);
         dishes.add(dish7);
