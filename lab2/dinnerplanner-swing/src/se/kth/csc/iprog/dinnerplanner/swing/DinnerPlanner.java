@@ -55,12 +55,12 @@ public class DinnerPlanner extends JFrame {
 		
 		// adding the view to the main JFrame
 
-        dinnerPlanner.getContentPane().add(prepView, BorderLayout.CENTER);
+        //dinnerPlanner.getContentPane().add(optionsView, BorderLayout.CENTER);
 
-/*
+
 		dinnerPlanner.getContentPane().add(courseSwitcher, BorderLayout.CENTER);
         dinnerPlanner.getContentPane().add(optionsView, BorderLayout.EAST);
-*/
+
         // make sure it's resizable
         dinnerPlanner.setResizable(true);
         dinnerPlanner.setPreferredSize(new Dimension(SW_WIDTH, SW_HEIGHT));
