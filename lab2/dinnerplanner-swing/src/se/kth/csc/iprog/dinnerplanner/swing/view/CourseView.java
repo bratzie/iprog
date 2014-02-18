@@ -6,13 +6,15 @@ import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashSet;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Set;
 
 /**
  *
  * Created by bratzie on 07/02/14.
  */
-public class CourseView extends JPanel {
+public class CourseView extends JPanel implements Observer {
 
     DinnerModel model;
     int course;
@@ -24,6 +26,7 @@ public class CourseView extends JPanel {
 
         this.model = model;
         this.course = course;
+        model.addObserver(this);
 
         // set the layout of the panel
         setLayout(new BorderLayout());
@@ -54,6 +57,10 @@ public class CourseView extends JPanel {
         add(dishContainer, BorderLayout.CENTER);
     }
 
+    public void update(Observable obj, Object arg) {
+        System.out.println("Update called");
+    }
+
     /** Returns an ImageIcon, or null if the path was invalid. */
     protected ImageIcon createImageIcon(String path, String description) {
         java.net.URL imgURL = getClass().getResource(path);
@@ -64,4 +71,6 @@ public class CourseView extends JPanel {
             return null;
         }
     }
+
+
 }
