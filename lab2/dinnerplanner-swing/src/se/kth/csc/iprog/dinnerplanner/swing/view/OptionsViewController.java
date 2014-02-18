@@ -38,15 +38,24 @@ public class OptionsViewController implements ActionListener{
             showPopUp(inView);
 
         }
+        else if(e.getSource() == view.prepButton){
+            showPopUp(prView);
+        }
 
     }
 
     public void showPopUp(IngredientView view) {
 
+        JFrame frame = new JFrame();
+        frame.getContentPane().add(view);
+        frame.setVisible(true);
+
     }
 
     public void showPopUp(PreparationView view) {
-
+        JFrame prFrame = new JFrame();
+        prFrame.getContentPane().add(view);
+        prFrame.setVisible(true);
     }
 
 
