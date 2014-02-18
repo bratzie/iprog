@@ -3,8 +3,9 @@ package se.kth.csc.iprog.dinnerplanner.model;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.Observable;
 
-public class DinnerModel implements IDinnerModel {
+public class DinnerModel extends Observable implements IDinnerModel {
 	
 
 	Set<Dish> dishes = new HashSet<Dish>();
@@ -119,7 +120,7 @@ public class DinnerModel implements IDinnerModel {
 	
 	/**
 	 * Returns the set of dishes of specific type, that contain filter in their name
-	 * or name of any ingredient. 
+	 * or name of any ingredient. notifyObserver?? TODO
 	 */
 	public Set<Dish> filterDishesOfType(int type, String filter){
 		Set<Dish> result = new HashSet<Dish>();
@@ -147,6 +148,8 @@ public class DinnerModel implements IDinnerModel {
     @Override
     public void setNumberOfGuests(int numberOfGuests) {
         noGuests = numberOfGuests;
+        setChanged();
+        notifyObservers();
     }
 
     /**
