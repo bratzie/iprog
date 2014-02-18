@@ -35,6 +35,12 @@ public class Dish {
 	public void setType(int type) {
 		this.type = type;
 	}
+
+    /**
+     * Gives you the type of the dish in text. Used to see what dish it is in an easy way.
+     *
+     * @return String the type of the dish in text.
+     */
     public String getTypeText() {
         String tempString;
         switch (type) {
