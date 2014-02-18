@@ -25,11 +25,13 @@ public class CourseViewController implements DocumentListener {
     @Override
     public void insertUpdate(DocumentEvent e) {
         System.out.println("input added");
+        view.resetDishes();
     }
 
     @Override
     public void removeUpdate(DocumentEvent e) {
         System.out.println("input removed");
+        view.resetDishes();
     }
 
     @Override

@@ -19,6 +19,8 @@ public class CourseView extends JPanel implements Observer {
     DinnerModel model;
     int course;
     public JTextField searchField;
+    JPanel dishPanel;
+    JScrollPane dishContainer;
 
     /**
      * Constructor for the CourseView class.
@@ -36,7 +38,7 @@ public class CourseView extends JPanel implements Observer {
         searchField = new JTextField("");
 
         // init course panel
-        JPanel dishPanel = new JPanel(new GridLayout(0, 4));
+        dishPanel = new JPanel(new GridLayout(0, 4));
         //dishPanel.setLayout(new BoxLayout(dishPanel, BoxLayout.PAGE_AXIS));
         Set<Dish> dishes = new HashSet<Dish>(model.getDishesOfType(course));
 
@@ -51,11 +53,42 @@ public class CourseView extends JPanel implements Observer {
 
             dishPanel.add(dishBox);
         }
-        JScrollPane dishContainer = new JScrollPane(dishPanel);
+        dishContainer = new JScrollPane(dishPanel);
 
         // add the panels to the top panel
         add(searchField, BorderLayout.NORTH);
         add(dishContainer, BorderLayout.CENTER);
+    }
+
+    public void resetDishes() {
+        System.out.println("resetting");
+
+        remove(dishContainer);
+        dishPanel = new JPanel(new GridLayout(0, 4));
+
+        Set<Dish> dishes = new HashSet<Dish>(model.getDishesOfType(course));
+
+        String searchString = searchField.getText();
+
+        for (Dish dish:dishes) {
+            if(dish.getName().toLowerCase().contains(searchString.toLowerCase())) {
+                JPanel dishBox = new JPanel();
+                dishBox.setLayout(new BoxLayout(dishBox, BoxLayout.Y_AXIS));
+                ImageIcon image = createImageIcon("/images/" + dish.getImage(), dish.getDescription());
+                JLabel imageLabel = new JLabel(image);
+                JLabel label = new JLabel(dish.getName(),JLabel.CENTER);
+                dishBox.add(imageLabel);
+                dishBox.add(label);
+
+                dishPanel.add(dishBox);
+            }
+        }
+
+        dishContainer = new JScrollPane(dishPanel);
+        add(dishContainer, BorderLayout.CENTER);
+
+        this.revalidate();
+        this.repaint();
     }
 
     public void update(Observable obj, Object arg) {
