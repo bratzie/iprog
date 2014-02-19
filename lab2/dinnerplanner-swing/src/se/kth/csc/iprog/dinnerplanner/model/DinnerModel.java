@@ -9,6 +9,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
 	
 
 	Set<Dish> dishes = new HashSet<Dish>();
+    Set<Dish> selectedDishes = new HashSet<Dish>();
 
     int noGuests;
 	
@@ -119,10 +120,14 @@ public class DinnerModel extends Observable implements IDinnerModel {
         Ingredient dish9ing1 = new Ingredient("Crispy",2,"",1);
         dish4.addIngredient(dish9ing1);
         dishes.add(dish9);
+
+        addSelectedDish("Silly Crispy Things");
+        addSelectedDish("Hamburger");
+        addSelectedDish("Berries");
 	}
 	
 	/**
-	 * Returns the set of dishes of specific type.
+	 * Returns the set of dishes of all types
      *
      * @return All of the dishes.
 	 */
@@ -188,7 +193,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
      */
     public Dish getSelectedDish(int type){
 
-        for(Dish dish: dishes){
+        for(Dish dish : selectedDishes){
             if(dish.getType() == type){
                 return dish;
             }
@@ -199,7 +204,33 @@ public class DinnerModel extends Observable implements IDinnerModel {
     /**
      * Returns all the dishes on the menu.
      */
-    public Set<Dish> getFullMenu(){ return dishes; }
+    public Set<Dish> getFullMenu(){
+        return selectedDishes;
+    }
+
+    /**
+     *
+     * @param name Name of dish to select.
+     */
+    public void addSelectedDish(String name) {
+        for(Dish dish: dishes) {
+            if(dish.getName() == name) {
+                selectedDishes.add(dish);
+            }
+        }
+    }
+
+    /**
+     *
+     * @param name Name of dish to select.
+     */
+    public void removeSelectedDish(String name) {
+        for(Dish dish: selectedDishes){
+            if(dish.getName() == name){
+                selectedDishes.remove(dish);
+            }
+        }
+    }
 
     /**
      *
@@ -209,7 +240,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
     public Set<Ingredient> getAllIngredients() {
         Set<Ingredient> allingredients = new HashSet<Ingredient>();
 
-        for (Dish dish:dishes) {
+        for (Dish dish:selectedDishes) {
             Set<Ingredient> ingredients = dish.getIngredients();
             for(Ingredient i : ingredients){
                 allingredients.add(i);

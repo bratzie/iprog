@@ -36,6 +36,7 @@ public class OptionsViewController implements ActionListener{
 
         if(e.getSource() == view.numOfGuests) {
             model.setNumberOfGuests(view.numOfGuests.getSelectedIndex());
+            System.out.println(model.getNumberOfGuests());
         }
         else if(e.getSource() == view.ingButton) {
             showPopUp(inView);

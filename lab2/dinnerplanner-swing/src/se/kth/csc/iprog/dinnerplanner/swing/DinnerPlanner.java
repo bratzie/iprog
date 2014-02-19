@@ -35,11 +35,11 @@ public class DinnerPlanner extends JFrame {
     // initialize panels
     static JTabbedPane courseSwitcher = new JTabbedPane();
     // static MainView mainView = new MainView(model); //ADDED
-    static IngredientView ingredientView = new IngredientView(model.getSelectedDish(2));
+    static IngredientView ingredientView = new IngredientView(model.getDishes().iterator().next());
     static OptionsView optionsView = new OptionsView(model);
     static PreparationView prepView = new PreparationView(model.getDishes());
     static OptionsViewController optionsCtrl = new OptionsViewController(model, optionsView, ingredientView, prepView);
-    static DishView dishView = new DishView(model.getSelectedDish(2));
+    static DishView dishView = new DishView(model.getDishes().iterator().next());
 
 
 	public static void main(String[] args) {

@@ -113,13 +113,15 @@ public class OptionsView extends JPanel implements Observer {
         // get dish-specific data
         ImageIcon image = createImageIcon("/images/" + dish.getImage(), dish.getDescription());
         JLabel imageLabel = new JLabel(image); // insert image into label to display it
-        JLabel label = new JLabel(type + ": " + dish.getName(), JLabel.LEFT);
+        final JLabel label = new JLabel(type + ": " + dish.getName(), JLabel.LEFT);
         JButton removeButton = new JButton("X");
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 //menuPanel.remove(panel);
+                //System.out.println(label.getText().split("\\: ")[1]);
+                model.removeSelectedDish(label.getText().split("\\: ")[1]);
                 panel.setVisible(false);
             }
         });
