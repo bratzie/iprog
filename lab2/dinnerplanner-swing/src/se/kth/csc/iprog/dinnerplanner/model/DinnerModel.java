@@ -222,7 +222,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
     @Override
     public float getTotalMenuPrice() {
         int totPrice = 0;
-        for (Dish dish:dishes) {
+        for (Dish dish: getFullMenu()) {
 
             totPrice += dish.getPrice();
 
