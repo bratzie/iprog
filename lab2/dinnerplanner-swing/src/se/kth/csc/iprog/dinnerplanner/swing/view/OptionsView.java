@@ -86,7 +86,7 @@ public class OptionsView extends JPanel implements Observer {
         add(menuPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
     }
-e
+
     public void update(Observable obj, Object arg) {
         System.out.println("Update called");
 
