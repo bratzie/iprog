@@ -199,9 +199,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
     /**
      * Returns all the dishes on the menu.
      */
-    public Set<Dish> getFullMenu(){
-        return dishes;
-    }
+    public Set<Dish> getFullMenu(){ return dishes; }
 
     /**
      *
@@ -209,7 +207,16 @@ public class DinnerModel extends Observable implements IDinnerModel {
      */
     @Override
     public Set<Ingredient> getAllIngredients() {
-        return null;
+        Set<Ingredient> allingredients = new HashSet<Ingredient>();
+
+        for (Dish dish:dishes) {
+            Set<Ingredient> ingredients = dish.getIngredients();
+            for(Ingredient i : ingredients){
+                allingredients.add(i);
+            }
+        }
+
+        return allingredients;
     }
 
     @Override

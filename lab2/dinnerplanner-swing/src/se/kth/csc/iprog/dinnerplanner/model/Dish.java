@@ -13,6 +13,7 @@ public class Dish {
 	int type; // starter (1), main (2) or desert (3)  
 	String image;
 	String description;
+    double price;
 	
 	Set<Ingredient> ingredients = new HashSet<Ingredient>();
 	
@@ -21,6 +22,7 @@ public class Dish {
 		this.type = type;
 		this.image = image;
 		this.description = description;
+        price = 0;
 	}
 	
 	public String getName() {
@@ -71,11 +73,17 @@ public class Dish {
 	
 	public void addIngredient(Ingredient ing){
 		ingredients.add(ing);
+        calculatePrice();
 	}
 	
 	public void removeIngredient(Ingredient ing){
 		ingredients.remove(ing);
+        calculatePrice();
 	}
+
+    public double getPrice() {
+        return price;
+    }
 	
 	public boolean contains(String filter){
 		if(name.toLowerCase().contains(filter.toLowerCase())){
@@ -89,4 +97,11 @@ public class Dish {
 		return false;
 	}
 
+    private void calculatePrice() {
+        double sum = 0;
+        for(Ingredient i : ingredients){
+            sum += i.getPrice();
+        }
+        price = sum;
+    }
 }
