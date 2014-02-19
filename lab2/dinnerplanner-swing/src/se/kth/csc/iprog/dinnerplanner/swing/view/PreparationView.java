@@ -11,7 +11,7 @@ import java.util.*;
  *
  * Created by bratzie on 07/02/14.
  */
-public class PreparationView extends JPanel {
+public class PreparationView extends JPanel implements Observer {
 
     Set<Dish> dishes;
     JPanel topPanel;
@@ -58,5 +58,9 @@ public class PreparationView extends JPanel {
         dishInfo.add(dishDesc);
 
         return dishInfo;
+    }
+
+    public void update(Observable obj, Object arg) {
+        System.out.println("Update called");
     }
 }
