@@ -94,7 +94,7 @@ public class OptionsView extends JPanel implements Observer {
     protected JComponent makeDishPanel (Dish dish){
 
         // set layout
-        JPanel panel = new JPanel();
+        final JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
         panel.setAlignmentX(JPanel.LEFT_ALIGNMENT);
         panel.setPreferredSize(new Dimension(400, 100));
@@ -118,7 +118,9 @@ public class OptionsView extends JPanel implements Observer {
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 //menuPanel.remove(panel);
+                panel.setVisible(false);
             }
         });
         removeButton.setAlignmentX(JButton.RIGHT_ALIGNMENT);
