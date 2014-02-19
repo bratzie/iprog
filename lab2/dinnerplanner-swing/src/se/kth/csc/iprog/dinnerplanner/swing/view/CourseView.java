@@ -5,6 +5,8 @@ import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
@@ -21,6 +23,7 @@ public class CourseView extends JPanel implements Observer {
     public JTextField searchField;
     JPanel dishPanel;
     JScrollPane dishContainer;
+  //  OptionsView oView;
 
     /**
      * Constructor for the CourseView class.
@@ -29,6 +32,7 @@ public class CourseView extends JPanel implements Observer {
 
         this.model = model;
         this.course = course;
+        //this.oView = oView;
         model.addObserver(this);
 
         // set the layout of the panel
@@ -43,11 +47,22 @@ public class CourseView extends JPanel implements Observer {
         Set<Dish> dishes = new HashSet<Dish>(model.getDishesOfType(course));
 
         for (Dish dish:dishes) {
-            JPanel dishBox = new JPanel();
+            final JPanel dishBox = new JPanel();
             dishBox.setLayout(new BoxLayout(dishBox, BoxLayout.Y_AXIS));
             ImageIcon image = createImageIcon("/images/" + dish.getImage(), dish.getDescription());
             JLabel imageLabel = new JLabel(image);
             JLabel label = new JLabel(dish.getName(),JLabel.CENTER);
+            JButton addButton = new JButton("+");
+            addButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                 //oView.menuPanel.add(dishBox);
+
+                }
+            });
+
+            dishBox.add(addButton);
             dishBox.add(imageLabel);
             dishBox.add(label);
 
