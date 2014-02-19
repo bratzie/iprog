@@ -87,11 +87,22 @@ public class CourseView extends JPanel implements Observer {
 
         for (Dish dish:dishes) {
             if(dish.getName().toLowerCase().contains(searchString.toLowerCase())) {
-                JPanel dishBox = new JPanel();
+                final JPanel dishBox = new JPanel();
                 dishBox.setLayout(new BoxLayout(dishBox, BoxLayout.Y_AXIS));
                 ImageIcon image = createImageIcon("/images/" + dish.getImage(), dish.getDescription());
                 JLabel imageLabel = new JLabel(image);
                 JLabel label = new JLabel(dish.getName(),JLabel.CENTER);
+                JButton addButton = new JButton("+");
+                addButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+
+                        //oView.menuPanel.add(dishBox);
+
+                    }
+                });
+
+                dishBox.add(addButton);
                 dishBox.add(imageLabel);
                 dishBox.add(label);
 
