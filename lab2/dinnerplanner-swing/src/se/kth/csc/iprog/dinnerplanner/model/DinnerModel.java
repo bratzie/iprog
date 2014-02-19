@@ -218,18 +218,25 @@ public class DinnerModel extends Observable implements IDinnerModel {
                 selectedDishes.add(dish);
             }
         }
+
+        setChanged();
+        notifyObservers();
     }
 
     /**
      *
      * @param name Name of dish to select.
      */
-    public void removeSelectedDish(String name) {
+    public boolean removeSelectedDish(String name) {
         for(Dish dish: selectedDishes){
-            if(dish.getName() == name){
+            if(dish.getName().equals(name)){
                 selectedDishes.remove(dish);
+                setChanged();
+                notifyObservers();
+                return true;
             }
         }
+        return false;
     }
 
     /**
@@ -252,12 +259,13 @@ public class DinnerModel extends Observable implements IDinnerModel {
 
     @Override
     public float getTotalMenuPrice() {
-        int totPrice = 0;
+        float totPrice = 0;
         for (Dish dish: getFullMenu()) {
 
             totPrice += dish.getPrice();
 
         }
+        totPrice *= noGuests;
         return totPrice;
     }
 

@@ -121,7 +121,13 @@ public class OptionsView extends JPanel implements Observer {
 
                 //menuPanel.remove(panel);
                 //System.out.println(label.getText().split("\\: ")[1]);
-                model.removeSelectedDish(label.getText().split("\\: ")[1]);
+                if(model.removeSelectedDish(label.getText().split("\\: ")[1])) {
+                    System.out.println("remove succeeded");
+                }
+                else {
+                    System.out.println("remove failed");
+                }
+                System.out.println(model.getFullMenu().size());
                 panel.setVisible(false);
             }
         });
