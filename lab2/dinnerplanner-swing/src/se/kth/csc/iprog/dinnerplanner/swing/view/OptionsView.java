@@ -86,9 +86,27 @@ public class OptionsView extends JPanel implements Observer {
         add(menuPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
     }
-
+e
     public void update(Observable obj, Object arg) {
         System.out.println("Update called");
+
+        remove(topPanel);
+
+        topPanel = new JPanel(new GridLayout(2,2));
+
+        JLabel numGuestsTitle = new JLabel("Number of guests:");
+        JLabel totCostTitle = new JLabel();
+        totCostTitle.setText("Total cost:");
+        JLabel totCostValue = new JLabel("  " + model.getTotalMenuPrice());
+        topPanel.add(numGuestsTitle);
+        topPanel.add(numOfGuests);
+        topPanel.add(totCostTitle);
+        topPanel.add(totCostValue);
+
+        add(topPanel, BorderLayout.NORTH);
+
+        revalidate();
+        repaint();
     }
 
     protected JComponent makeDishPanel (Dish dish){

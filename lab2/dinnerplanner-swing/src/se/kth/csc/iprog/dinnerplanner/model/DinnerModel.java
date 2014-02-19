@@ -214,7 +214,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
      */
     public void addSelectedDish(String name) {
         for(Dish dish: dishes) {
-            if(dish.getName() == name) {
+            if(dish.getName().equals(name)) {
                 selectedDishes.add(dish);
             }
         }
