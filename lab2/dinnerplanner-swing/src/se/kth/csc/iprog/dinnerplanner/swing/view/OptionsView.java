@@ -105,6 +105,27 @@ public class OptionsView extends JPanel implements Observer {
 
         add(topPanel, BorderLayout.NORTH);
 
+        remove(menuPanel);
+
+        menuPanel = new JPanel(new BorderLayout());
+        JLabel menuTitle = new JLabel("Dinner Menu");
+
+        Set<Dish> dishes = new HashSet<Dish>(model.getFullMenu());
+        JPanel dishPanel = new JPanel();
+        dishPanel.setLayout(new BoxLayout(dishPanel, BoxLayout.PAGE_AXIS));
+
+        for (Dish dish:dishes) {
+            JComponent temp = makeDishPanel(dish);
+            dishPanel.add(temp);
+        }
+
+        JScrollPane menuScroll = new JScrollPane(dishPanel); // TODO add interactivity? Make it scrollable.
+
+        menuPanel.add(menuTitle, BorderLayout.NORTH);
+        menuPanel.add(menuScroll, BorderLayout.CENTER);
+
+        add(menuPanel, BorderLayout.CENTER);
+
         revalidate();
         repaint();
     }

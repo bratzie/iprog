@@ -28,12 +28,12 @@ public class CourseView extends JPanel implements Observer {
     /**
      * Constructor for the CourseView class.
      */
-    public CourseView(DinnerModel model, int course) {
+    public CourseView(DinnerModel localmodel, int course) {
 
-        this.model = model;
+        this.model = localmodel;
         this.course = course;
         //this.oView = oView;
-        model.addObserver(this);
+        localmodel.addObserver(this);
 
         // set the layout of the panel
         setLayout(new BorderLayout());
@@ -46,7 +46,7 @@ public class CourseView extends JPanel implements Observer {
         //dishPanel.setLayout(new BoxLayout(dishPanel, BoxLayout.PAGE_AXIS));
         Set<Dish> dishes = new HashSet<Dish>(model.getDishesOfType(course));
 
-        for (Dish dish:dishes) {
+        for (final Dish dish:dishes) {
             final JPanel dishBox = new JPanel();
             dishBox.setLayout(new BoxLayout(dishBox, BoxLayout.Y_AXIS));
             ImageIcon image = createImageIcon("/images/" + dish.getImage(), dish.getDescription());
@@ -56,8 +56,8 @@ public class CourseView extends JPanel implements Observer {
             addButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
-                 //oView.menuPanel.add(dishBox);
+                    model.addSelectedDish(dish.getName());
+                    //oView.menuPanel.add(dishBox);
 
                 }
             });
@@ -85,7 +85,7 @@ public class CourseView extends JPanel implements Observer {
 
         String searchString = searchField.getText();
 
-        for (Dish dish:dishes) {
+        for (final Dish dish:dishes) {
             if(dish.getName().toLowerCase().contains(searchString.toLowerCase())) {
                 final JPanel dishBox = new JPanel();
                 dishBox.setLayout(new BoxLayout(dishBox, BoxLayout.Y_AXIS));
@@ -96,7 +96,7 @@ public class CourseView extends JPanel implements Observer {
                 addButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-
+                        model.addSelectedDish(dish.getName());
                         //oView.menuPanel.add(dishBox);
 
                     }
