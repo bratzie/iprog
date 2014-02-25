@@ -10,4 +10,6 @@ $(function() {
    	var exampleViewController = new ExampleViewController(exampleView,model);
    	var startView = new StartView($("#startView"),model);
    	var startViewController = new StartViewControlle(startView,model);
+   	var selectDishView = new SelectDishView($("#selectDishView"),model);
+   	var selectDishViewController = new SelectDishViewControlle(selectDishView,model);
 });
