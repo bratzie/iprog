@@ -30,9 +30,9 @@
 		<div id="headSelectDish" class="page-header col-md-12 container-fluid" style="border: 2px solid black; background-color: rgba(174, 166, 166, 1)">	
 			<h1>Homelette <small style="color: #444;">From the best chefs in the world directly into your kitchen</small></h1>				
 		</div>
-		<div id="myDinner" class="col-md-3" style="border: 2px solid black">
+		<div id="myDinner" class="col-md-3" style="border: 2px solid black;">
 			<h4>My Dinner</h4>
-			<div>
+			<div style="padding: 10px;">
 				Number of guests:
 				<select id="noGuests" name=guests>
 					<option value="1">1</option>
@@ -43,34 +43,45 @@
 					<option value="6">6</option>
 				</select>
 			</div>
-			<div class="row" style="background-color: rgba(174, 166, 166, 1); border-top: 2px solid black; border-bottom: 2px solid black">
-				<p style="text-align: left; position: absolute">Dish Name</p>
-				<p style="text-align: right; position: relative">Cost</p>
+			<div class="row" style="background-color: rgba(174, 166, 166, 1); border-top: 2px solid black; border-bottom: 2px solid black; padding: 10px;">
+                <div class="row" style="margin-bottom: 10px;">
+    				<div class="col-md-6"><strong>Dish Name</strong></div>
+    				<div class="col-md-4 col-md-offset-2" style="text-align: right;"><strong>Cost</strong></div>
+                </div>
+                <div class="row">
+                    <div id="selectedMenu" class="col-md-12">
+                        <div class="menuItem row">
+                            <div class="col-md-6">Pending</div>
+                            <div class="col-md-4 col-md-offset-2" style="text-align: right;">0</div>
+                        </div>
+                    </div>
+                </div>
 			</div>
 			<div>
-				Total price: <span id="totalPrice"></span>
+				Total price: <span id="totalPrice"></span> SEK
 			</div>
 			<button id="confirmDinner" class="btn btn-success" style="margin: 4px">Confirm Dinner</button>
 
 		</div>
-		<div id="selectDishMajor" class ="col-md-9 container-fluid" style="border: 2px solid black">
-			<div id="dishSorter" class="row" style="border-bottom: 2px solid black; width: 100%; background-color: rgba(255, 165, 0, 0.4)"> <!-- TODO: Fill DishMajor div completely -->
+		<div id="selectDishMajor" class ="col-md-9" style="border: 2px solid black; position: relative; left: -2px;">
+			<div id="dishSorter" class="row" style="border-bottom: 2px solid black; background-color: rgba(255, 165, 0, 0.4); padding: 20px; box-sizing: border-box;"> <!-- TODO: Fill DishMajor div completely -->
 				<h4 style="text-decoration: underline">Select Dish</h4>
 
-				<div class="input-group" style="width: 200px">
+				<div class="input-group col-md-5">
 					<input type="search" class="form-control" placeholder="Enter key word">
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="button">Search</button>
 					</span>
 				</div>
-
-				<select id="courseType" name=course>
-					<option value="starter">Starter</option>
-					<option value="main">Main</option>
-					<option value="dessert">Dessert</option>
-				</select>
+                <div class="input-group col-md-4" style="margin-top: 10px;">
+    				<select id="courseType" name=course>
+    					<option value="starter">Starter</option>
+    					<option value="main">Main</option>
+    					<option value="dessert">Dessert</option>
+    				</select>
+                </div>
 			</div>
-			<div id="dishShower" class="row">
+			<div id="dishShower" class="row" style="padding: 20px; box-sizing: border-box;">
 				<h4>Show your penis</h4>
 			</div>
 		</div>
