@@ -13,7 +13,8 @@ var DinnerOverviewView = function (container, model) {
     
     //This function gets called when there is a change at the model
     this.update = function(arg){
-        this.numberOfGuests.html(model.getNumberOfGuests());
+        var noguests = model.getNumberOfGuests();
+        this.numberOfGuests.html(noguests==1 ? noguests+" person" : noguests+" people");
         this.totalPrice.html(model.getTotalMenuPrice());
 
         this.menu.html("");
