@@ -103,6 +103,23 @@
 		</div>
 	</div>
 
+    <!-- dinnerPreparation layout -->
+    <div id="dinnerPreparationView" class="container" style="display:none">
+        <div class="page-header col-md-12 container-fluid" style="border: 2px solid black; background-color: rgba(174, 166, 166, 1)"> 
+            <h1>Homelette <small style="color: #444;">From the best chefs in the world directly into your kitchen</small></h1>              
+        </div>
+        <div class="col-md-12" style="border: 2px solid black">
+            <div class="col-md-6">
+                <h4>My Dinner: <span id="preparationNumberOfGuests"></span> people</h4>
+            </div>
+            <div class="col-md-6">
+                <button id="backToDinnerTwo" class="btn btn-primary pull-right" style="margin: 4px">Go back and edit dinner</button>
+            </div>
+        </div>
+        <div id="preparationMenu" class="col-md-12">
+        </div>
+    </div>
+
 
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery.js"></script>
@@ -118,5 +135,7 @@
 	<script src="js/view/selectDishViewController.js"></script>
 	<script src="js/view/dinnerOverviewView.js"></script>
 	<script src="js/view/dinnerOverviewViewController.js"></script>
+    <script src="js/view/dinnerPreparationView.js"></script>
+    <script src="js/view/dinnerPreparationViewController.js"></script>
 </body>
 </html>

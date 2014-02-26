@@ -14,6 +14,8 @@ $(function() {
    	var selectDishViewController = new SelectDishViewController(selectDishView,model);
    	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"),model);
    	var dinnerOverviewViewController = new DinnerOverviewViewController(dinnerOverviewView,model);
+   	var dinnerPreparationView = new DinnerPreparationView($("#dinnerPreparationView"),model);
+   	var dinnerPreparationViewController = new DinnerPreparationViewController(dinnerPreparationView,model);
 
 
    });
