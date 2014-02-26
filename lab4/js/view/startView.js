@@ -2,9 +2,10 @@ var StartView = function (container,model) {
 
 	this.createDinnerBtn = container.find("#createDinner");
 
-	//creating the layout of the view
-	var div = $("<div>");
-	div.html("Homelette");
-	container.append(div);
-
 }
+//Register an observer to the model
+	model.addObserver(this);
+	
+	//This function gets called when there is a change at the model
+	this.update = function(arg){
+	}
