@@ -25,6 +25,7 @@ var DinnerOverviewView = function (container, model) {
             dish.ingredients.forEach(function (ingredient) {
                 price += ingredient.price;
             });
+            price *= model.getNumberOfGuests();
 
             el += "<div class=\"col-md-3\" style=\"margin: 20px; border: 2px solid #CCC;\">";
             el += "<img class=\"img-responsive center-block\" style=\"margin: 15px;\" src=\"images/"+dish.image+"\">";

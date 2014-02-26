@@ -30,7 +30,7 @@ var DinnerPreparationView = function (container, model) {
 
             el += "<ul>"
             dish.ingredients.forEach(function (ingredient) {
-                el += "<li>"+ingredient.quantity+ingredient.unit+" "+ingredient.name+"</li>";
+                el += "<li>"+(ingredient.quantity*model.getNumberOfGuests())+(ingredient.unit!="" ? " "+ingredient.unit : "")+" "+ingredient.name+"</li>";
             });
             el += "</ul>"
 
