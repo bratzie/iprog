@@ -2,11 +2,7 @@ var DinnerOverviewView = function (container, model) {
 
     this.numberOfGuests = container.find("#overviewNumberOfGuests");
     this.totalPrice = container.find("#overviewTotalPrice");
-    this.menu = container.find("#overviewMenu");
-    
-    //Set the inital values of the components
-    this.numberOfGuests.html(model.getNumberOfGuests());
-    this.totalPrice.html(model.getTotalMenuPrice());
+    this.menu = $('#overviewMenu');
 
     /*****************************************  
           Observer implementation    
@@ -21,13 +17,22 @@ var DinnerOverviewView = function (container, model) {
         this.totalPrice.html(model.getTotalMenuPrice());
 
         var menu = model.getFullMenu();
-        console.log(menu);
 
-        menu.forEach(function (entry) {
-            var el = "<div class=\"col-md-3\">";
-            el += entry.name;
+        menu.forEach(function (dish) {
+            var price = 0;
+            dish.ingredients.forEach(function (ingredient) {
+                price += ingredient.price;
+            });
+
+            var el = "<div class=\"col-md-3\" style=\"margin: 20px 0; border: 2px solid #CCC;\">";
+            el += "<img class=\"img-responsive center-block\" style=\"margin: 15px;\" src=\"images/"+dish.image+"\">";
+            el += "<h5>"+dish.name+"</h5>";
+            el += "<h6 class=\"pull-right\">"+price+" SEK</h6>";
             el += "</div>";
-            this.menu.append(el);
+            $('#overviewMenu').append(el);
         });
     }
+    
+    //Set the inital values of the components
+    this.update();
 }
