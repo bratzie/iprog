@@ -16,7 +16,7 @@ $(function() {
 
 });
 
-function goToSelectDishView(){
-		document.getElementById("selectDishView").style.display = "block";
-		document.getElementById("startView").style.display = "none";
+function goToView(id){
+		$('.container').css('display', 'none');
+		$('#'+id).css('display', 'block');
 }
