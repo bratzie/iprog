@@ -6,4 +6,8 @@ var SelectDishViewController = function(view, model ) {
 	$('#noGuests').change(function() {
 		model.setNumberOfGuests($('#noGuests').val());
 	});
+
+	$('#search').keyup(function() {
+		view.search();
+	});
 }

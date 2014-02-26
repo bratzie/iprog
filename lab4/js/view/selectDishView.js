@@ -1,8 +1,11 @@
-var SelectDishView = function (container,model) {
+var SelectDishView = function (container, model) {
 
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.totalPrice = container.find("#totalPrice");
-	this.menu = container.find("#selectedMenu")
+	this.selectedMenu = container.find("#selectedMenu");
+	this.menuChoices = container.find("#dishShower");
+	this.searchKey = container.find("#search");
+	this.courseType = container.find("#courseType");
 
 	/*****************************************  
 	      Observer implementation    
@@ -16,8 +19,7 @@ var SelectDishView = function (container,model) {
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		this.totalPrice.html(model.getTotalMenuPrice());
 
-		this.menu.html("");
-
+		this.selectedMenu.html("");
         var menuarray = model.getFullMenu();
         var el = "";
         if(menuarray.length === 0) {
@@ -40,8 +42,52 @@ var SelectDishView = function (container,model) {
         		el += "</div>\n";
         	});
         }
+        this.selectedMenu.html(el);
+        this.search();
+	}
 
-        this.menu.html(el);
+	this.search = function() {
+		this.menuChoices.html("");
+
+        var menuarray = model.getAllDishes(this.courseType.value, "").prevObject;
+        menuarray = $.map(menuarray, function(value, index) { return [value]; }); //turns it from a jquery object into an array
+
+        var bucket = [];
+        searchval = this.searchKey[0].value.toLowerCase();
+
+        menuarray.forEach(function (dish) {
+        	var bool = false;
+        	dish.ingredients.forEach(function (ingredient) {
+                if(ingredient.name.toLowerCase().indexOf(searchval) != -1){
+	        		bool = true;
+	        	}
+            });
+        	if(dish.name.toLowerCase().indexOf(searchval) != -1){
+        		bool = true;
+        	}
+        	if(bool) {
+        		bucket.push(dish);
+        	}
+        });
+
+        menuarray = bucket;
+
+        var el = "";
+        menuarray.forEach(function (dish) {
+            var price = 0;
+            dish.ingredients.forEach(function (ingredient) {
+                price += ingredient.price;
+            });
+            price *= model.getNumberOfGuests();
+
+            el += "<div class=\"col-md-3\" style=\"margin: 20px; border: 2px solid #CCC;\">";
+            el += "<img class=\"img-responsive center-block\" style=\"margin: 15px;\" src=\"images/"+dish.image+"\">";
+            el += "<h5>"+dish.name+"</h5>";
+            el += "<h6 class=\"pull-right\">"+price+" SEK</h6>";
+            el += "</div>\n";
+        });
+
+        this.menuChoices.html(el);
 	}
 	
 	//Set the inital values of the components
