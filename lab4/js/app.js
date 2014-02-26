@@ -12,11 +12,14 @@ $(function() {
    	var startViewController = new StartViewController(startView,model);
    	var selectDishView = new SelectDishView($("#selectDishView"),model);
    	var selectDishViewController = new SelectDishViewController(selectDishView,model);
+   	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"),model);
+   	var dinnerOverviewViewController = new DinnerOverviewViewController(dinnerOverviewView,model);
 
 
-});
+   });
 
 function goToView(id){
-		$('.container').css('display', 'none');
-		$('#'+id).css('display', 'block');
+	$('.container').css('display', 'none');
+	$('#'+id).css('display', 'block');
+	console.log('going to view: '+id);
 }
