@@ -5,5 +5,9 @@ var dishViewController = function(view, model ) {
 		goToView('selectDishView');
 
 	});
+
+	$('#confirmDinner2').click(function () {
+		goToView('dinnerOverviewView');
+	});
 }
 }
