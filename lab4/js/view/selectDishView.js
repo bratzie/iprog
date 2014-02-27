@@ -72,7 +72,6 @@ var SelectDishView = function (container, model) {
         });
 
         menuarray = bucket;
-        console.log(menuarray);
 
 		var el = "<div class=\"row\">";
 		var i;
