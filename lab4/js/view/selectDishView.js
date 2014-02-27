@@ -44,6 +44,7 @@ var SelectDishView = function (container, model) {
         }
         this.selectedMenu.html(el);
         this.search();
+        console.log(this.courseType.value);
 	}
 
 	this.search = function() {
@@ -65,7 +66,7 @@ var SelectDishView = function (container, model) {
         	if(dish.name.toLowerCase().indexOf(searchval) != -1){
         		bool = true;
         	}
-        	if(bool) {
+        	if(bool && dish.type == this.courseType.value) {
         		bucket.push(dish);
         	}
         });
@@ -84,13 +85,12 @@ var SelectDishView = function (container, model) {
             });
             price *= model.getNumberOfGuests();
 
-            el += "<div class=\"col-md-3\" style=\"margin: 20px; border: 2px solid #CCC;\">";
+            el += "<div data-id=\""+dish.id+"\" class=\"col-md-3 filterdish\" style=\"margin: 20px; border: 2px solid #CCC; cursor: pointer;\">";
             el += "<img class=\"img-responsive center-block\" style=\"margin: 15px;\" src=\"images/"+dish.image+"\">";
             el += "<h5>"+dish.name+"</h5>";
             el += "<h6 class=\"pull-right\">"+price+" SEK</h6>";
             el += "</div>\n";
 
-            console.log((i-1)%3);
             if((i+1)%3==0) {
             	el += "</div><div class=\"row\">";
             }
@@ -99,6 +99,10 @@ var SelectDishView = function (container, model) {
 		el += "</div>";
 
         this.menuChoices.html(el);
+
+        $('.filterdish').click(function () {
+			console.log($(this).attr('data-id'));
+		});
 	}
 	
 	//Set the inital values of the components

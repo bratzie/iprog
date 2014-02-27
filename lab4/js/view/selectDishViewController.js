@@ -10,4 +10,8 @@ var SelectDishViewController = function(view, model ) {
 	$('#search').keyup(function() {
 		view.search();
 	});
+
+	$('#courseType').change(function() {
+		view.search();
+	});
 }
