@@ -71,10 +71,14 @@ var SelectDishView = function (container, model) {
         });
 
         menuarray = bucket;
+        console.log(menuarray);
 
-        var el = "";
-        menuarray.forEach(function (dish) {
-            var price = 0;
+		var el = "<div class=\"row\">";
+		var i;
+		for(i=0; i<menuarray.length; i++) {
+			var dish = menuarray[i];
+
+			var price = 0;
             dish.ingredients.forEach(function (ingredient) {
                 price += ingredient.price;
             });
@@ -85,7 +89,14 @@ var SelectDishView = function (container, model) {
             el += "<h5>"+dish.name+"</h5>";
             el += "<h6 class=\"pull-right\">"+price+" SEK</h6>";
             el += "</div>\n";
-        });
+
+            console.log((i-1)%3);
+            if((i+1)%3==0) {
+            	el += "</div><div class=\"row\">";
+            }
+		}
+
+		el += "</div>";
 
         this.menuChoices.html(el);
 	}
