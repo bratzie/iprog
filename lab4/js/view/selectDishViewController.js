@@ -14,4 +14,10 @@ var SelectDishViewController = function(view, model ) {
 	$('#courseType').change(function() {
 		view.search();
 	});
+
+
+	// TODO: Fix this function
+	//$('#').click(function () {
+	//	model.addDishToMenu(dish.id);
+	//});
 }
