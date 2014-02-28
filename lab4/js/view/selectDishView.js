@@ -1,6 +1,6 @@
 var SelectDishView = function (container, model) {
 
-	this.numberOfGuests = container.find("#numberOfGuests");
+	this.numberOfGuests = container.find("#noGuests");
 	this.totalPrice = container.find("#totalPrice");
 	this.selectedMenu = container.find("#selectedMenu");
 	this.menuChoices = container.find("#dishShower");
@@ -16,7 +16,7 @@ var SelectDishView = function (container, model) {
 	
 	//This function gets called when there is a change at the model
 	this.update = function(arg){
-		this.numberOfGuests.html(model.getNumberOfGuests());
+        this.numberOfGuests.val(model.getNumberOfGuests())
 		this.totalPrice.html(model.getTotalMenuPrice());
 
 		this.selectedMenu.html("");
