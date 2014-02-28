@@ -164,7 +164,7 @@ var DinnerModel = function() {
 		'id':3,
 		'name':'Baked Brie with Peaches',
 		'type':'starter',
-		'image':'bakedbrie.jpg',
+		'image':'berries.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'round Brie cheese',
