@@ -3,9 +3,11 @@ var DinnerModel = function() {
  
 	var menu = [];
 	var numberOfGuests = 1; //set default number of guests
+	var currentDish = 1;
+	/*
 	menu['starter'] = 1; //set a starter to the menu, to use for testing
 	menu['main'] = 100; //set a main to the menu, to use for testing
-
+	*/
 
 	this.setNumberOfGuests = function(num) {
 		if(num>0) {
@@ -55,7 +57,9 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		menu[this.getDish(id).type] = id; 
+		menu[this.getDish(id).type] = id;
+		console.log("Added " + id + " to the menu!");
+		for(dish in menu) {console.log(dish);}
 	}
 
 	//Removes dish from menu
@@ -97,6 +101,15 @@ var DinnerModel = function() {
 		}
 	}
 
+	//set the id of the dish we are currently looking at
+	this.setCurrentDish = function (id) {
+		currentDish = id;
+	}
+
+	//get the id of the dish we are currently looking at
+	this.getCurrentDish = function () {
+		return parseInt(currentDish);
+	}
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
@@ -162,7 +175,7 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':3,
-		'name':'Baked Brie with Peaches',
+		'name':'Berries',
 		'type':'starter',
 		'image':'berries.jpg',
 		'description':"Here is how you make it... Lore ipsum...",

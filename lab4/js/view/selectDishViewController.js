@@ -15,9 +15,5 @@ var SelectDishViewController = function(view, model ) {
 		view.search();
 	});
 
-
-	// TODO: Fix this function
-	//$('#').click(function () {
-	//	model.addDishToMenu(dish.id);
-	//});
+    
 }

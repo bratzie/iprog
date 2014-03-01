@@ -44,7 +44,7 @@ var SelectDishView = function (container, model) {
         }
         this.selectedMenu.html(el);
         this.search();
-        console.log(this.courseType.value);
+        //console.log(this.courseType.value);
 	}
 
 	this.search = function() {
@@ -100,8 +100,10 @@ var SelectDishView = function (container, model) {
         this.menuChoices.html(el);
 
         $('.filterdish').click(function () {
-			console.log($(this).attr('data-id'));
-		});
+            model.setCurrentDish($(this).attr('data-id'));
+            goToView('dishView');
+            //console.log($(this).attr('data-id'));
+        });
 	}
 	
 	//Set the inital values of the components

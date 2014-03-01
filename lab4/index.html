@@ -113,30 +113,37 @@
                 <div class="row">
                     <div id="selectedMenu" class="col-md-12">
                         <div class="menuItem row">
-                            <div class="col-md-6">Pending</div>
-                            <div id="pendingCost" class="col-md-4 col-md-offset-2" style="text-align: right;">0</div>
                         </div>
                     </div>
+                        <div class="col-md-6">Pending</div>
+                        <div id="pendingCost" class="col-md-4 col-md-offset-2" style="text-align: right;">0</div>
                 </div>
 			</div>
 			<div>
-				Total price: <span id="totalPrice"></span> SEK
+				Total price: <span id="totalPrice">0</span> SEK
 			</div>
 			<button id="confirmDinner2" class="btn btn-success" style="margin: 4px">Confirm Dinner</button>
 
 		</div>
 		<!-- dishView right content -->
 		<div id="selectedDish" class ="col-md-9" style="border: 2px solid black; position: relative; left: -2px;">
-			<div id="dish" class="col-md-5" style="border-right: 2px solid black;">
-				<button id="backToSelectDishView" class="btn btn-warning" style="margin: 4px">Back to Select Dish</button>
+			<div id="dish" class="col-md-6">
+				<h2 id="selectedDishName">DishNamePlaceholder</h2>
+				<p id="dishImageDescription">Image and description</p>
+				<button id="backToSelectDishView" class="btn btn-warning" style="margin: 4px">Back to Dish Selection</button>
 			</div>
-			<div id="ingredients" class="col-md-4" style="position: relative; background-color: rgba(255, 165, 0, 0.4)">
+			<div id="ingredients" class="col-md-6" style="position: right; background-color: rgba(255, 165, 0, 0.4)">
+				<div id="ingredientsList"><p>IngredientsListPlaceholder</p></div>
 				<button id="addDish" class="btn btn-warning" style="margin: 4px">Confirm Dish</button>
+			</div>
+			<div id="preparation" class="col-md-12" style="position: relative">
+				<h2>Preparation</h2>
+				<div id="preparationText">
+					<p>PreparationTextPlaceholder</p>
+				</div>
 			</div>
 		</div>
 	</div>
-
-
 
 	<!-- dinnerOverview layout -->
 	<div id="dinnerOverviewView" class="container" style="display:none">
