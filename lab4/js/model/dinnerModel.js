@@ -58,8 +58,9 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		menu[this.getDish(id).type] = id;
-		console.log("Added " + id + " to the menu!");
+		//console.log("Added " + id + " to the menu!");
 		for(dish in menu) {console.log(dish);}
+		notifyObservers();
 	}
 
 	//Removes dish from menu
@@ -68,6 +69,7 @@ var DinnerModel = function() {
 		if(menu[type] == id) {
 			delete menu[type];
 		}
+		notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -104,6 +106,7 @@ var DinnerModel = function() {
 	//set the id of the dish we are currently looking at
 	this.setCurrentDish = function (id) {
 		currentDish = id;
+		notifyObservers();
 	}
 
 	//get the id of the dish we are currently looking at

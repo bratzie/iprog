@@ -4,8 +4,8 @@ var DishViewController = function(view, model ) {
 		goToView('selectDishView');
 	});
 
-	$('#noGuests').change(function() {
-		model.setNumberOfGuests($('#noGuests').val());
+	$('#noGuests2').change(function() {
+		model.setNumberOfGuests($('#noGuests2').val());
 	});
 
 	$('#addDish').click(function () {
