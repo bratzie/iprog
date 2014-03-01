@@ -1,4 +1,4 @@
-var dishView = function (container, model) {
+var DishView = function (container, model) {
 
 	this.backToSelectDishBtn = container.find("#backToSelectDishView");
 

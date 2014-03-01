@@ -16,8 +16,8 @@ $(function() {
    	var dinnerOverviewViewController = new DinnerOverviewViewController(dinnerOverviewView,model);
    	var dinnerPreparationView = new DinnerPreparationView($("#dinnerPreparationView"),model);
    	var dinnerPreparationViewController = new DinnerPreparationViewController(dinnerPreparationView,model);
-
-
+   	var dishView = new DishView($("dishView"),model);
+   	var dishViewController = new DishViewController(dishView,model);
    });
 
 function goToView(id){

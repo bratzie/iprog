@@ -248,7 +248,7 @@ var DinnerModel = function() {
 		'id':101,
 		'name':'MD 2',
 		'type':'main dish',
-		'image':'bakedbrie.jpg',
+		'image':'hamburger.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ingredient 1',
@@ -289,7 +289,7 @@ var DinnerModel = function() {
 			'price':4
 			}]
 		},{
-		'id':102,
+		'id':103,
 		'name':'MD 4',
 		'type':'main dish',
 		'image':'meatballs.jpg',
