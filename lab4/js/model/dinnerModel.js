@@ -262,7 +262,7 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':101,
-		'name':'MD 2',
+		'name':'Hamburger',
 		'type':'main dish',
 		'image':'hamburger.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
@@ -284,9 +284,9 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':102,
-		'name':'MD 3',
+		'name':'Sushi',
 		'type':'main dish',
-		'image':'meatballs.jpg',
+		'image':'sushi.png',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ingredient 1',
@@ -306,9 +306,9 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':103,
-		'name':'MD 4',
+		'name':'Meat',
 		'type':'main dish',
-		'image':'meatballs.jpg',
+		'image':'meat.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ingredient 1',
@@ -328,7 +328,7 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':200,
-		'name':'Chocolat Ice cream',
+		'name':'Chocolate Ice cream',
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
