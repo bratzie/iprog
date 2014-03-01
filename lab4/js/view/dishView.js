@@ -79,7 +79,8 @@ var DishView = function (container, model) {
     	var el = "";
     	el += "<div>";
         el += "<h2>"+currentDishInfo.name+" for "+model.getNumberOfGuests()+" guests</h2>";
-
+        el += "<hl />"
+        
         el += "<ul>"
         currentDishInfo.ingredients.forEach(function (ingredient) {
             el += "<li>"+(ingredient.quantity*model.getNumberOfGuests())+(ingredient.unit!="" ? " "+ingredient.unit+" of " : " ")+ingredient.name+"</li>";
