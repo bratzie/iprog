@@ -56,11 +56,15 @@ var DishView = function (container, model) {
 	}
 
     this.dishInfo = function () {
+    	// reset html
     	this.dishText.html("");
     	this.preparationText.html("");
+    	this.ingredientsList.html("");
 
+    	// get the current dish
     	currentDishInfo = model.getDish(currentDish);
 
+    	// construct html for image and name of dish
     	var el = "";
     	el += "<div>";
         el += "<h2>"+currentDishInfo.name+"</h2>";
@@ -68,8 +72,22 @@ var DishView = function (container, model) {
         el += "</div>\n";
     	this.dishText.html(el);
 
+    	// add description of the dish
     	this.preparationText.html("<p>"+currentDishInfo.description+"</p>");
 
+    	// add ingredients of the dish
+    	var el = "";
+    	el += "<div>";
+        el += "<h2>"+currentDishInfo.name+" for "+model.getNumberOfGuests()+" guests</h2>";
+
+        el += "<ul>"
+        currentDishInfo.ingredients.forEach(function (ingredient) {
+            el += "<li>"+(ingredient.quantity*model.getNumberOfGuests())+(ingredient.unit!="" ? " "+ingredient.unit+" of " : " ")+ingredient.name+"</li>";
+        });
+        el += "</ul>"
+
+        el += "</div>";
+    	this.ingredientsList.html(el);
     }
 
     this.updatePendingPrice = function() {
