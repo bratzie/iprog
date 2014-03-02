@@ -5,11 +5,9 @@ var DishView = function (container, model) {
 	this.totalPrice = container.find("#totalPrice");
 	this.selectedMenu = container.find("#selectedMenu");
 	this.pendingCost = container.find("#pendingCost");
-	this.dishText = container.find("dish");
+	this.dishText = container.find("#dishText");
 	this.preparationText = container.find("#preparationText");
 	this.ingredientsList = container.find("#ingredientsList");
-
-	var currentDish = 1;
 
 	/*****************************************  
 	      Observer implementation    
@@ -23,16 +21,11 @@ var DishView = function (container, model) {
 		// update left column
         this.numberOfGuests.val(model.getNumberOfGuests())
 		this.totalPrice.html(model.getTotalMenuPrice());
-		this.currentDish = model.getCurrentDish();
 
 		this.selectedMenu.html("");
         var menuarray = model.getFullMenu();
         var el = "";
         if(menuarray.length === 0) {
-        	el += "<div class=\"menuItem row\">";
-            el += "<div class=\"col-md-6\">Pending</div>";
-            el += "<div class=\"col-md-4 col-md-offset-2\" style=\"text-align: right;\">0</div>";
-            el += "</div>\n";
         }
         else {
         	menuarray.forEach(function (dish) {
@@ -62,15 +55,15 @@ var DishView = function (container, model) {
     	this.ingredientsList.html("");
 
     	// get the current dish
-    	currentDishInfo = model.getDish(currentDish);
+    	currentDishInfo = model.getDish(model.getCurrentDish());
 
     	// construct html for image and name of dish
-    	var el = "";
-    	el += "<div>";
-        el += "<h2>"+currentDishInfo.name+"</h2>";
-        el += "<img class=\"img-responsive center-block\" style=\"margin: 15px;\" src=\"images/"+currentDishInfo.image+"\">";
-        el += "</div>\n";
-    	this.dishText.html(el);
+    	var e = "";
+    	e += "<div>";
+        e += "<h2>"+currentDishInfo.name+"</h2>";
+        e += "<img class=\"img-responsive center-block\" style=\"margin: 5px; width: 70%; height: 70%;\" src=\"images/"+currentDishInfo.image+"\">";
+        e += "</div>\n";
+    	this.dishText.html(e);
 
     	// add description of the dish
     	this.preparationText.html("<p>"+currentDishInfo.description+"</p>");
@@ -79,13 +72,13 @@ var DishView = function (container, model) {
     	var el = "";
     	el += "<div>";
         el += "<h2>"+currentDishInfo.name+" for "+model.getNumberOfGuests()+" guests</h2>";
-        el += "<hl />"
+        el += "<hl />";
         
-        el += "<ul>"
+        el += "<ul>";
         currentDishInfo.ingredients.forEach(function (ingredient) {
             el += "<li>"+(ingredient.quantity*model.getNumberOfGuests())+(ingredient.unit!="" ? " "+ingredient.unit+" of " : " ")+ingredient.name+"</li>";
         });
-        el += "</ul>"
+        el += "</ul>";
 
         el += "</div>";
     	this.ingredientsList.html(el);
@@ -93,13 +86,13 @@ var DishView = function (container, model) {
 
     this.updatePendingPrice = function() {
 		var price = 0;
-    	var currentDishPending = model.getDish(currentDish);
+    	var currentDishPending = model.getDish(model.getCurrentDish());
     	currentDishPending.ingredients.forEach(function (ingredient) {
 			price += ingredient.price;
 		});
 		price *= model.getNumberOfGuests();
 
-		this.pendingCost.html(price);
+		this.pendingCost.html("<b>"+price+"</b>");
 
     }
 
